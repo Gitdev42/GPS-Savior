@@ -9,4 +9,16 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES += main.cpp
+INCLUDEPATH += include/
+INCLUDEPATH += test/
+
+SOURCES += main.cpp \
+    src/GeoData.cpp
+
+HEADERS += \
+    include/catch.hpp \
+    include/GeoData.h
+
+DISTFILES += \
+    GPSSaviour.pro.user.18 \
+    docs/CPP_Styleguide.md
