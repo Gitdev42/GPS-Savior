@@ -1,28 +1,26 @@
 /**
- * TODO1.h
- * Purpose: defines class TODO1
+ * GSMAgent.h
+ * Purpose: defines class GSMAgent
  *
  * @author TODO2
  * @version 1.0
  */
 
-#ifndef TODO1_H
-#define TODO1_H
+#ifndef GSMAgent_H
+#define GSMAgent_H
 
 
 
-class TODO1 {
+class GSMAgent {
     public:
         /* --- constructors / destructors --- */
-        TODO1() {};
+        GSMAgent() {};
 
         /* --- getters / setters --- */
-        bool getTODO3() const;
-        void setTODO3(bool TODO3_);
 
 private:
-	bool TODO3;
+
 
 };
 
-#endif // TODO_H
+#endif // GSMAgent_H

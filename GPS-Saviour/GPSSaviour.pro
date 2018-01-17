@@ -9,4 +9,16 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES += main.cpp
+SOURCES += \
+    main.cpp \
+    src/NeedyClient.cpp \
+    src/GPSAgent.cpp \
+    src/GPSData.cpp \
+    src/GSMAgent.cpp \
+
+HEADERS += \
+    include/catch.hpp \
+    include/GPSData.h \
+    include/NeedyClient.h \
+    include/GPSAgent.h \
+    include/GSMAgent.h \
