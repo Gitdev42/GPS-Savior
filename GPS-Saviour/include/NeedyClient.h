@@ -6,23 +6,21 @@
  * @version 1.0
  */
 
-#ifndef TODO1_H
-#define TODO1_H
+#ifndef NeedyClient_H
+#define NeedyClient_H
 
 
 
-class TODO1 {
+class NeedyClient {
     public:
         /* --- constructors / destructors --- */
-        TODO1() {};
+        NeedyClient() {};
 
         /* --- getters / setters --- */
-        bool getTODO3() const;
-        void setTODO3(bool TODO3_);
 
 private:
-	bool TODO3;
+
 
 };
 
-#endif // TODO_H
+#endif // NeedyClient_H

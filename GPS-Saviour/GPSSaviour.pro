@@ -12,13 +12,17 @@ TEMPLATE = app
 INCLUDEPATH += include/
 INCLUDEPATH += test/
 
-SOURCES += main.cpp \
-    src/GeoData.cpp
+SOURCES += \
+    main.cpp \
+    src/NeedyClient.cpp \
+    src/GPSAgent.cpp \
+    src/GeoData.cpp \
+    src/GSMAgent.cpp \
 
 HEADERS += \
     include/catch.hpp \
-    include/GeoData.h
+    include/GeoData.h \
+    include/NeedyClient.h \
+    include/GPSAgent.h \
+    include/GSMAgent.h \
 
-DISTFILES += \
-    GPSSaviour.pro.user.18 \
-    docs/CPP_Styleguide.md

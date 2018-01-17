@@ -1,28 +1,27 @@
 /**
- * TODO1.h
- * Purpose: defines class TODO1
+ * GPSAgent.h
+ * Purpose: defines class GPSAgent
  *
  * @author TODO2
  * @version 1.0
  */
 
-#ifndef TODO1_H
-#define TODO1_H
+#ifndef GPSAgent_H
+#define GPSAgent_H
 
 
 
-class TODO1 {
+class GPSAgent {
     public:
         /* --- constructors / destructors --- */
-        TODO1() {};
+        GPSAgent() {};
 
         /* --- getters / setters --- */
-        bool getTODO3() const;
-        void setTODO3(bool TODO3_);
+
 
 private:
-	bool TODO3;
+
 
 };
 
-#endif // TODO_H
+#endif // GPSAgent_H
