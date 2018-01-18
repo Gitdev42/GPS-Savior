@@ -31,6 +31,7 @@ private:
     double longitude; // geo location longitude in decimal degree
     double latitude; // geo location latitude in decimal degree
     double height; // geo location height in meter
+    int ctime; // time (unix time)
 
 };
 
