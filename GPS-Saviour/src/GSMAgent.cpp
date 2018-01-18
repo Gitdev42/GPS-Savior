@@ -14,3 +14,7 @@
 
 
 
+
+void GSMAgent::init() {
+    cout << "initialized GSMAgent" << endl;
+}

@@ -9,7 +9,9 @@
 #ifndef GSMAgent_H
 #define GSMAgent_H
 
+#include <iostream>
 
+using namespace std;
 
 class GSMAgent {
     public:
@@ -17,6 +19,9 @@ class GSMAgent {
         GSMAgent() {};
 
         /* --- getters / setters --- */
+        void init();
+        void requestData();
+        void sendData();
 
 private:
 

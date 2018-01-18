@@ -16,7 +16,9 @@ class GPSAgent {
         /* --- constructors / destructors --- */
         GPSAgent() {};
 
-        /* --- getters / setters --- */
+        /* --- miscellaneous --- */
+        void init();
+        void receiveGeoData();
 
 
 private:
