@@ -6,7 +6,7 @@
  * @version 1.0
  */
 
-#include "../include/NeedyClient.h".h"
+#include "../include/NeedyClient.h"
 
 
 /* --- getters / setters --- */

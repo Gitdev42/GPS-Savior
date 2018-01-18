@@ -9,7 +9,9 @@
 #ifndef GPSAgent_H
 #define GPSAgent_H
 
+#include <iostream>
 
+using namespace std;
 
 class GPSAgent {
     public:
