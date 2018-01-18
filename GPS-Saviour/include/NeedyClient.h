@@ -9,7 +9,9 @@
 #ifndef NeedyClient_H
 #define NeedyClient_H
 
+#include <iostream>
 
+using namespace std;
 
 class NeedyClient {
     public:

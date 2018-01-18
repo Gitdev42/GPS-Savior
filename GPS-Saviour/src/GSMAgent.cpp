@@ -18,3 +18,11 @@
 void GSMAgent::init() {
     cout << "initialized GSMAgent" << endl;
 }
+
+void GSMAgent::requestData() {
+    cout << "GSM Data requested" << endl;
+}
+
+void GSMAgent::sendData() {
+    cout << "GSM Data send" << endl;
+}

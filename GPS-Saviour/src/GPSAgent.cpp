@@ -12,3 +12,11 @@
 /* --- getters / setters --- */
 
 
+
+void GPSAgent::init() {
+    cout << "initialized GPSAgent" << endl;
+}
+
+void GPSAgent::receiveGeoData() {
+    cout << "GeoData Dummy received" << endl;
+}
