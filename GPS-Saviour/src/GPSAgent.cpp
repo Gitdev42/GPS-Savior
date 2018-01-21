@@ -20,16 +20,23 @@
 
 
 
-void GPSAgent::init() {
+bool GPSAgent::init() {
     cout << "initialized GPSAgent" << endl;
+    return true;
 }
 
-void GPSAgent::receiveGeoData() {
-    init();
-    GeoData receivedData;
-    receivedData = convertReceivedDataIntoGeoData();
-    saveGeoData(receivedData);
- }
+bool GPSAgent::receiveGeoData() {
+    if (init()){
+        GeoData receivedData;
+        if (testRecievedData()){
+            receivedData = convertReceivedDataIntoGeoData();
+            saveGeoData(receivedData);
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
 
 
 void GPSAgent::saveGeoData(GeoData receivedData) {
@@ -48,17 +55,15 @@ bool GPSAgent::testRecievedData()
 
 GeoData GPSAgent::convertReceivedDataIntoGeoData() const {
     GeoData geoD;
-    if testRecievedData();{
-        /* initialize random seed: */
-        srand (time(NULL));
-        double noise = rand() % 100 + 1;
-        noise = noise / 100.0;
-        geoD.setHeight(5 + noise);
-        geoD.setLatitude(54.382868 + noise);
-        geoD.setLongitude(10.955257 + noise);
-        geoD.setCTime(getTimeMs64());
-        return geoD;
-    }
+    /* initialize random seed: */
+    srand (time(NULL));
+    double noise = rand() % 100 + 1;
+    noise = noise / 100.0;
+    geoD.setHeight(5 + noise);
+    geoD.setLatitude(54.382868 + noise);
+    geoD.setLongitude(10.955257 + noise);
+    geoD.setCTime(getTimeMs64());
+    return geoD;
 }
 
 /**

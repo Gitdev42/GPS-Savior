@@ -17,7 +17,6 @@ using namespace  std;
 
 TEST_CASE("Test GPSAgent") {
     GPSAgent gpsA;
-    gpsA.init();
     gpsA.receiveGeoData();
 
 
