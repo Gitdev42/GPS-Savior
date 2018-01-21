@@ -25,6 +25,7 @@ void GPSAgent::init() {
 }
 
 void GPSAgent::receiveGeoData() {
+    init();
     GeoData receivedData;
     receivedData = convertReceivedDataIntoGeoData();
     saveGeoData(receivedData);
@@ -33,32 +34,31 @@ void GPSAgent::receiveGeoData() {
 
 void GPSAgent::saveGeoData(GeoData receivedData) {
     cout << "GeoData Dummy received" << endl;
-    GeoData data;
-    data.setLongitude(receivedData.getLongitude());
-    data.setLatitude(receivedData.getLatitude());
-    data.setHeight(receivedData.getHeight());
-    data.setCTime(receivedData.getCTime());
-    storedGeoData.push_back(data);
-
-
+    storedGeoData.push_back(receivedData);
 }
 
 void GPSAgent::receiveDataFromGPSChip() const {
 
 }
 
+bool GPSAgent::testRecievedData()
+{
+   return true;
+}
+
 GeoData GPSAgent::convertReceivedDataIntoGeoData() const {
     GeoData geoD;
-    /* initialize random seed: */
-    srand (time(NULL));
-    int noise = rand() % 100 + 1;
-    noise = noise / 100.0;
-    geoD.setHeight(5 + noise);
-    geoD.setLatitude(54.382868 + noise);
-    geoD.setLongitude(10.955257 + noise);
-    geoD.setCTime(getTimeMs64());
-
-
+    if testRecievedData();{
+        /* initialize random seed: */
+        srand (time(NULL));
+        double noise = rand() % 100 + 1;
+        noise = noise / 100.0;
+        geoD.setHeight(5 + noise);
+        geoD.setLatitude(54.382868 + noise);
+        geoD.setLongitude(10.955257 + noise);
+        geoD.setCTime(getTimeMs64());
+        return geoD;
+    }
 }
 
 /**

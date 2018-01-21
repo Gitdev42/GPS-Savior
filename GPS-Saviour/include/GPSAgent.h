@@ -27,6 +27,7 @@ class GPSAgent {
         void init();
         void receiveGeoData();
         void receiveDataFromGPSChip() const;
+        bool testRecievedData();
         void saveGeoData(GeoData);
         GeoData convertReceivedDataIntoGeoData() const;
 
