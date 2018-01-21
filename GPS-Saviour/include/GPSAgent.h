@@ -27,11 +27,11 @@ class GPSAgent {
         void init();
         void receiveGeoData();
         void receiveDataFromGPSChip() const;
+        void saveGeoData(GeoData);
         GeoData convertReceivedDataIntoGeoData() const;
 
         /* --- dummy test functions --- */
-        unsigned int getTimeMs64();
-
+        unsigned int getTimeMs64() const;
 
 private:
     vector<GeoData> storedGeoData;

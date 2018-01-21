@@ -25,7 +25,21 @@ void GPSAgent::init() {
 }
 
 void GPSAgent::receiveGeoData() {
+    GeoData receivedData;
+    receivedData = convertReceivedDataIntoGeoData();
+    saveGeoData(receivedData);
+ }
+
+
+void GPSAgent::saveGeoData(GeoData receivedData) {
     cout << "GeoData Dummy received" << endl;
+    GeoData data;
+    data.setLongitude(receivedData.getLongitude());
+    data.setLatitude(receivedData.getLatitude());
+    data.setHeight(receivedData.getHeight());
+    data.setCTime(receivedData.getCTime());
+    storedGeoData.push_back(data);
+
 
 }
 
@@ -42,6 +56,7 @@ GeoData GPSAgent::convertReceivedDataIntoGeoData() const {
     geoD.setHeight(5 + noise);
     geoD.setLatitude(54.382868 + noise);
     geoD.setLongitude(10.955257 + noise);
+    geoD.setCTime(getTimeMs64());
 
 
 }
@@ -53,7 +68,7 @@ GeoData GPSAgent::convertReceivedDataIntoGeoData() const {
  * @source https://stackoverflow.com/questions/1861294/how-to-calculate-execution-time-of-a-code-snippet-in-c
  */
 
-unsigned int GPSAgent::getTimeMs64() {
+unsigned int GPSAgent::getTimeMs64() const {
 #ifdef _WIN32
  /* Windows */
  FILETIME ft;
