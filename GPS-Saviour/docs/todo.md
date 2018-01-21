@@ -1,28 +1,28 @@
 # TODO-List of the GPSSaviour-Project
 
 ## GeoData class
-- [ ] documentation
-- [ ] refactor (styleguide)
+- [ ] documentation (gitdev42)
+- [ ] refactor (styleguide) (gitdev42)
 
 ## GPSAgent class
 - [x] flowcharts
-- [ ] documentation
-- [ ] tests
+- [ ] documentation (gitdev1234)
+- [ ] tests (gitdev42 & gitdev1234)
   - [ ] receiveGeoData
   - [ ] saveGeoData
 - [ ] loadGeoData
-- [ ] refactor (styleguide)
+- [ ] refactor (styleguide) (gitdev1234)
 
 
 ## GSMAgent
-- [ ] flowcharts
+- [ ] flowcharts (gitdev42 & gitdev1234)
 - [ ] documentation
 - [ ] tests
 - [ ] refactor (styleguide)
 
 
-## NeedyClient
-- [ ] flowcharts
+## NeedyClient 
+- [ ] flowcharts (gitdev42)
 - [ ] documentation
 - [ ] tests
 - [ ] refactor (styleguide)
