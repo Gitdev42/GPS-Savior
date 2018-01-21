@@ -11,16 +11,24 @@
 
 #include <iostream>
 
+#include "GPSAgent.h"
+#include "GSMAgent.h"
+
 using namespace std;
 
 class NeedyClient {
     public:
         /* --- constructors / destructors --- */
         NeedyClient() {};
+        void init();
+        void execute();
 
         /* --- getters / setters --- */
 
-private:
+    private:
+        GPSAgent gpsAgent;
+        GSMAgent gsmAgent;
+
 
 
 };

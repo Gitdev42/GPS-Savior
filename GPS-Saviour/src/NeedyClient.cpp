@@ -13,3 +13,12 @@
 
 
 
+
+void NeedyClient::init() {
+    gpsAgent.init();
+    gsmAgent.init();
+}
+
+void NeedyClient::execute() {
+
+}

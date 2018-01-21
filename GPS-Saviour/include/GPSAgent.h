@@ -21,7 +21,7 @@ using namespace std;
 class GPSAgent {
     public:
         /* --- constructors / destructors --- */
-        GPSAgent() {};
+        GPSAgent();
 
         /* --- miscellaneous --- */
         void init();
@@ -30,10 +30,15 @@ class GPSAgent {
         void saveGeoData(GeoData);
         GeoData convertReceivedDataIntoGeoData() const;
 
+        /* --- getters / setters --- */
+        void setConnectionEstablished(bool val_);
+        bool getConnectionEstablished();
+
         /* --- dummy test functions --- */
         unsigned int getTimeMs64() const;
 
 private:
+    bool connectionEstablished;
     vector<GeoData> storedGeoData;
 
 };

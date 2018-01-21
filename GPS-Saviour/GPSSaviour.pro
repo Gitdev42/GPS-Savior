@@ -18,7 +18,8 @@ SOURCES += \
     src/GPSAgent.cpp \
     src/GeoData.cpp \
     src/GSMAgent.cpp \
-    test/GPSAgentTest.cpp
+    test/GPSAgentTest.cpp \
+    test/NeedyClientTest.cpp
 
 HEADERS += \
     include/catch.hpp \

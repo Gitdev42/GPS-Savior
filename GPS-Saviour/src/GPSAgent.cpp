@@ -17,18 +17,31 @@
 
 
 /* --- getters / setters --- */
+void GPSAgent::setConnectionEstablished(bool val_) {
+    connectionEstablished = val_;
+}
 
+bool GPSAgent::getConnectionEstablished() {
+    return connectionEstablished;
+}
 
+GPSAgent::GPSAgent() {
+    setConnectionEstablished(false);
+    init();
+}
 
 void GPSAgent::init() {
-    cout << "initialized GPSAgent" << endl;
+    if (! getConnectionEstablished()) {
+        setConnectionEstablished(true);
+        cout << "initialized GPSAgent" << endl;
+    }
 }
 
 void GPSAgent::receiveGeoData() {
     GeoData receivedData;
     receivedData = convertReceivedDataIntoGeoData();
     saveGeoData(receivedData);
- }
+}
 
 
 void GPSAgent::saveGeoData(GeoData receivedData) {
@@ -39,12 +52,10 @@ void GPSAgent::saveGeoData(GeoData receivedData) {
     data.setHeight(receivedData.getHeight());
     data.setCTime(receivedData.getCTime());
     storedGeoData.push_back(data);
-
-
 }
 
 void GPSAgent::receiveDataFromGPSChip() const {
-
+    cout << "Received Data From GPS Chip" << endl;
 }
 
 GeoData GPSAgent::convertReceivedDataIntoGeoData() const {
