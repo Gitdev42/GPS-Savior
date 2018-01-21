@@ -10,6 +10,8 @@
 #define GPSAgent_H
 
 #include <iostream>
+#include <vector>
+#include "GeoData.h"
 
 using namespace std;
 
@@ -21,10 +23,11 @@ class GPSAgent {
         /* --- miscellaneous --- */
         void init();
         void receiveGeoData();
+        GeoData receiveDataFromGPSChip(); const;
 
 
 private:
-
+    vector<GeoData> storedGeoData;
 
 };
 

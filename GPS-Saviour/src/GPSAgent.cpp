@@ -19,4 +19,5 @@ void GPSAgent::init() {
 
 void GPSAgent::receiveGeoData() {
     cout << "GeoData Dummy received" << endl;
+
 }
