@@ -22,6 +22,8 @@ class GSMAgent {
         void init();
         void requestData();
         void sendData();
+        void requestLoggingAndContinousData();
+        void sendContinousData();
 
 private:
 
