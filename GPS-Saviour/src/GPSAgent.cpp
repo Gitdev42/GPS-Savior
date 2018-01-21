@@ -18,6 +18,25 @@ void GPSAgent::init() {
 }
 
 void GPSAgent::receiveGeoData() {
+    GeoData receivedData;
+    receivedData = convertReceivedDataIntoGeoData();
+    saveGeoData(receivedData);
+ }
+
+
+void GPSAgent::saveGeoData(GeoData receivedData) {
     cout << "GeoData Dummy received" << endl;
+    GeoData data;
+    data.setLongitude(receivedData.getLongitude());
+    data.setLatitude(receivedData.getLatitude());
+    data.setHeight(receivedData.getHeight());
+    data.setCTime(receivedData.getCTime());
+    storedGeoData.push_back(data);
+
+
+}
+
+GeoData GPSAgent::convertReceivedDataIntoGeoData() const
+{
 
 }

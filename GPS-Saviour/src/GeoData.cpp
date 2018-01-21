@@ -64,3 +64,22 @@ double GeoData::getHeight() const {
 void GeoData::setHeight(double height_) {
     height = height_;
 }
+
+/**
+ * GeoData::getCTime
+ * @brief getter for class member ctime
+ * @return returns current value of ctime
+ */
+double GeoData::getCTime() const {
+    return ctime;
+}
+
+/**
+ * GeoData::setCTime
+ * @brief setter for class member ctime
+ * @param height_ new value for class member ctime
+ */
+void GeoData::setCTime( int ctime_) {
+    ctime = ctime_;
+}
+

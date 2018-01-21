@@ -23,8 +23,9 @@ class GPSAgent {
         /* --- miscellaneous --- */
         void init();
         void receiveGeoData();
-        GeoData receiveDataFromGPSChip(); const;
-
+        void receiveDataFromGPSChip() const;
+        void saveGeoData(GeoData);
+        GeoData convertReceivedDataIntoGeoData() const;
 
 private:
     vector<GeoData> storedGeoData;

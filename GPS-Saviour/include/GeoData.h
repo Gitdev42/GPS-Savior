@@ -24,7 +24,10 @@ class GeoData {
         void setLatitude(double latitude_);
 
         double getHeight() const;
-        void setHeight(double latitude_);
+        void setHeight(double height_);
+
+        double getCTime() const;
+        void setCTime(int ctime_);
 
 
 private:

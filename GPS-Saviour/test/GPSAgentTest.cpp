@@ -20,6 +20,6 @@ TEST_CASE("Test GPSAgent") {
     gpsA.init();
     gpsA.receiveGeoData();
 
-    cout << "Hallo" << endl;
+
 
 }
