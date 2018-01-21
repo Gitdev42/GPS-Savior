@@ -17,9 +17,6 @@ using namespace  std;
 
 TEST_CASE("Test NeedyClient") {
     NeedyClient nc;
-
-
-
-
-
+    nc.init();
+    nc.execute();
 }
