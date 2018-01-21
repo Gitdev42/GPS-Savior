@@ -28,8 +28,8 @@ class GeoData {
 
 
 private:
-    double longitude; // geo location longitude in decimal degree
-    double latitude; // geo location latitude in decimal degree
+    double longitude; // geo location longitude in decimal degree; + values are east; - values are west
+    double latitude; // geo location latitude in decimal degree; + values are north; - values are south
     double height; // geo location height in meter
     int ctime; // time (unix time)
 
