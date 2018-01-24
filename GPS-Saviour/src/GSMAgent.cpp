@@ -26,21 +26,29 @@ void GSMAgent::init(vector<int> partnerTelephoneNumbers_, int telephoneNumber_) 
 /**
  * @brief GSMAgent::sendRequestForLogging
  */
-void GSMAgent::sendRequestForLogging() {
-
+GSMPackage GSMAgent::sendRequestForLogging() {
+    GSMPackage gsmPackageToSend;
+    gsmPackageToSend.setPackageType(PackageType::requestLogging);
+    gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
+    gsmPackageToSend.setSenderTelephoneNumber(getTelephoneNumber());
+    return sendGSMPackage(gsmPackageToSend);
 }
 
 /**
  * @brief GSMAgent::sendRequesForData
  */
-void GSMAgent::sendRequesForData() {
-
+GSMPackage GSMAgent::sendRequesForData() {
+    GSMPackage gsmPackageToSend;
+    gsmPackageToSend.setPackageType(PackageType::requestData);
+    gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
+    gsmPackageToSend.setSenderTelephoneNumber(getTelephoneNumber());
+    return sendGSMPackage(gsmPackageToSend);
 }
 
 /**
  * @brief GSMAgent::sendData
  */
-void GSMAgent::sendData() {
+GSMPackage GSMAgent::sendData() {
 
 }
 
@@ -102,8 +110,9 @@ void GSMAgent::receiveGSMPackage() {
 /**
  * @brief sendGSMPackage
  */
-void GSMAgent::sendGSMPackage() {
-
+GSMPackage GSMAgent::sendGSMPackage(GSMPackage gsmPackageToSend_) {
+    cout << "succesfully sent GSM Package" << endl;
+    return gsmPackageToSend_;
 }
 
 /* --- authentication --- */
