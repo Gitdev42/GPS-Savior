@@ -8,11 +8,14 @@
 
 #ifndef GSMPACKAGE_H
 #define GSMPACKAGE_H
+
+#include <vector>
 #include "Types.h"
 #include "GeoData.h"
-#include <vector>
 
 using namespace std;
+
+class GeoData;
 
 class GSMPackage {
     public:

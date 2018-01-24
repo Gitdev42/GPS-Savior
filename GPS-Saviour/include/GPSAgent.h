@@ -11,9 +11,9 @@
 
 #include <iostream>
 #include <vector>
-#include <stdlib.h>     /* srand, rand */
 
 #include "GeoData.h"
+#include "TestBuffer.h"
 
 
 using namespace std;
@@ -35,12 +35,10 @@ class GPSAgent {
         void setConnectionEstablished(bool val_);
         bool getConnectionEstablished();
 
-        /* --- dummy test functions --- */
-        unsigned int getTimeMs64() const;
-
 private:
     bool connectionEstablished;
     vector<GeoData> storedGeoData;
+    TestBuffer& buffer = TestBuffer::getInstance();
 
 };
 

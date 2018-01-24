@@ -20,7 +20,8 @@ SOURCES += \
     src/GSMAgent.cpp \
     test/GPSAgentTest.cpp \
     test/NeedyClientTest.cpp \
-    src/GSMPackage.cpp
+    src/GSMPackage.cpp \
+    test/TestBuffer.cpp
 
 HEADERS += \
     include/catch.hpp \
@@ -29,5 +30,6 @@ HEADERS += \
     include/GPSAgent.h \
     include/GSMAgent.h \
     include/GSMPackage.h \
-    include/Types.h
+    include/Types.h \
+    test/TestBuffer.h
 

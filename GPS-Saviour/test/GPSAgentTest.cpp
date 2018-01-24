@@ -11,6 +11,7 @@
 
 #include "catch.hpp"
 #include "GPSAgent.h"
+#include "TestBuffer.h"
 
 using namespace  std;
 
@@ -18,4 +19,6 @@ using namespace  std;
 TEST_CASE("Test GPSAgent") {
     GPSAgent gpsA;
     gpsA.receiveGeoData();
+
+    TestBuffer& buffer = TestBuffer::getInstance();
 }
