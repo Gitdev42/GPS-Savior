@@ -24,3 +24,23 @@ void GSMPackage::setGeoDataToSend(GeoData geoDataToSend_) {
 GeoData GSMPackage::getGeoDataToSend() {
     return geoDataToSend;
 }
+
+vector<int> GSMPackage::getReceipientTelephoneNumbers() const
+{
+    return receipientTelephoneNumbers;
+}
+
+void GSMPackage::setReceipientTelephoneNumbers(const vector<int> &val_)
+{
+    receipientTelephoneNumbers = val_;
+}
+
+int GSMPackage::getSenderTelephoneNumber() const
+{
+    return senderTelephoneNumber;
+}
+
+void GSMPackage::setSenderTelephoneNumber(int val_)
+{
+    senderTelephoneNumber = val_;
+}

@@ -25,9 +25,9 @@ class GSMAgent {
         void init(vector<int> partnerTelephoneNumbers_, int telephoneNumber_);
 
         /* --- request and receive data --- */
-        void sendRequestForLogging();
-        void sendRequesForData();
-        void sendData();
+        GSMPackage sendRequestForLogging();
+        GSMPackage sendRequesForData();
+        GSMPackage sendData();
         void receiveData();
         void receiveRequest();
 
@@ -42,7 +42,7 @@ class GSMAgent {
 private:
         /* --- send / receive --- */
         void receiveGSMPackage();
-        void sendGSMPackage();
+        GSMPackage sendGSMPackage();
 
         /* --- authentication --- */
         bool checkAuthenticationOfRequest();

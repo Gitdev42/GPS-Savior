@@ -9,10 +9,12 @@
 #ifndef TYPES_H
 #define TYPES_H
 
+/* --- structs --- */
 
+/* --- constants --- */
 
-
-    enum PackageType {requestForAuth, requestData, requestLoging, sendData, authenticationDenied};
+/* --- enumerations --- */
+enum PackageType {requestForAuth, requestData, requestLogging, sendData, authDenied};
 
 
 

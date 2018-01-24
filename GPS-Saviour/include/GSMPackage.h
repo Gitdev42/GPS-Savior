@@ -24,16 +24,9 @@ class GSMPackage {
         void setGeoDataToSend(GeoData geoDataToSend_);
         GeoData getGeoDataToSend();
 
-
-
-
-
 private:
-
         PackageType packageType;
-        GeoData geoDataToSend;
-
-
+        vector<GeoData> geoDataToSend;
 
 };
 
