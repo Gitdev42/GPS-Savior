@@ -21,7 +21,8 @@ SOURCES += \
     test/GPSAgentTest.cpp \
     test/NeedyClientTest.cpp \
     src/GSMPackage.cpp \
-    test/TestBuffer.cpp
+    test/TestBuffer.cpp \
+    test/GSMAgentTest.cpp
 
 HEADERS += \
     include/catch.hpp \

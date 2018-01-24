@@ -40,7 +40,7 @@ GSMPackage GSMAgent::sendRequestForLogging() {
 /**
  * @brief GSMAgent::sendRequesForData
  */
-GSMPackage GSMAgent::sendRequesForData() {
+GSMPackage GSMAgent::sendRequestForData() {
     GSMPackage gsmPackageToSend;
     gsmPackageToSend.setPackageType(PackageType::requestData);
     gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
@@ -58,14 +58,24 @@ GSMPackage GSMAgent::sendData() {
 /**
  * @brief receiveData
  */
-void GSMAgent::receiveData(GSMPackage gsmPackageToReceive) {
-
+void GSMAgent::receiveData(GSMPackage gsmPackageToReceive_) {
+    if (gsmPackageToReceive_.getPackageType() == PackageType::sendData) {
+        receivedData.insert(receivedData.end(),gsmPackageToReceive_.getGeoDataToSend().begin(),
+                     gsmPackageToReceive_.getGeoDataToSend().end());
+    }
 }
 
 /**
  * @brief receiveRequest
  */
-void GSMAgent::receiveRequest(GSMPackage) {
+void GSMAgent::receiveRequest(GSMPackage gsmPackageToReceive_) {
+    if (gsmPackageToReceive_.getPackageType() == PackageType::requestForAuth) {
+
+    } else if (gsmPackageToReceive_.getPackageType() == PackageType::requestLogging) {
+
+    } else if (gsmPackageToReceive_.getPackageType() == PackageType::requestData) {
+
+    }
 
 }
 
