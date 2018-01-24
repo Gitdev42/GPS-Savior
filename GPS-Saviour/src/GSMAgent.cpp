@@ -37,7 +37,7 @@ GSMPackage GSMAgent::sendRequestForLogging() {
 /**
  * @brief GSMAgent::sendRequesForData
  */
-GSMPackage GSMAgent::sendRequesForData() {
+GSMPackage GSMAgent::sendRequestForData() {
     GSMPackage gsmPackageToSend;
     gsmPackageToSend.setPackageType(PackageType::requestData);
     gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
