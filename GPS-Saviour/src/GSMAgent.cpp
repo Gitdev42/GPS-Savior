@@ -19,6 +19,11 @@ void GSMAgent::init() {
     cout << "initialized GSMAgent" << endl;
 }
 
+bool GSMAgent::checkRequestForAuthentication()
+{
+    return true;
+}
+
 void GSMAgent::requestData() {
     cout << "GSM Data requested" << endl;
 }

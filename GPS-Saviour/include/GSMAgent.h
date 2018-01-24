@@ -20,6 +20,7 @@ class GSMAgent {
 
         /* --- getters / setters --- */
         void init();
+        bool checkRequestForAuthentication();
         void requestData();
         void sendData();
         void requestLoggingAndContinousData();
