@@ -6,7 +6,10 @@
  * @version 1.0
  */
 
+#include <iostream>
 #include "../include/GSMAgent.h"
+
+using namespace std;
 
 /* --- constructors / destructors --- */
 
