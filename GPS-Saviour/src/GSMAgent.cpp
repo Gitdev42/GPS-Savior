@@ -47,14 +47,14 @@ void GSMAgent::sendData() {
 /**
  * @brief receiveData
  */
-void GSMAgent::receiveData() {
+void GSMAgent::receiveData(GSMPackage gsmPackageToReceive) {
 
 }
 
 /**
  * @brief receiveRequest
  */
-void GSMAgent::receiveRequest() {
+void GSMAgent::receiveRequest(GSMPackage) {
 
 }
 
@@ -112,6 +112,6 @@ void GSMAgent::sendGSMPackage() {
  * @return
  */
 bool checkAuthenticationOfRequest() {
-
+return true;
 }
 

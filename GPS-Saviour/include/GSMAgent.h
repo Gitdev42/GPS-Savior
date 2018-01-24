@@ -12,6 +12,7 @@
 #include <iostream>
 #include "Types.h"
 #include <vector>
+#include "GSMPackage.h"
 
 
 using namespace std;
@@ -28,8 +29,8 @@ class GSMAgent {
         void sendRequestForLogging();
         void sendRequesForData();
         void sendData();
-        void receiveData();
-        void receiveRequest();
+        void receiveData(GSMPackage gsmPackageToReceive);
+        void receiveRequest(GSMPackage);
 
         /* --- getters / setters --- */
         void setPartnerTelephoneNumbers(vector<int> val_);
