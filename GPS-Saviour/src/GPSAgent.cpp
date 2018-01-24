@@ -60,6 +60,8 @@ bool GPSAgent::receiveGeoData() {
         } else {
             return false;
         }
+    } else {
+        return false;
     }
 }
 

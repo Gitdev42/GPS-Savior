@@ -5,11 +5,11 @@ The GPS-Saviour project consist out of two main parts:
 1. Encrypted communication between the NeedyClient and the SaviourClient
 2. Logging the GPS-coordinates after activation.
 
-The clients communicate via SMS. To make clear you are the only one who can activate the GPS-tracker the clients use a SSH inspired authentication.
+The clients communicate via SMS. To make sure you are the only one who can activate the GPS-tracker the clients use a SSH inspired authentication.
 
 
 ## Testing
-The GPS-Ssaviour project is tested with the c++ header-only unit-testing framework [**catch**](https://github.com/philsquared/Catch).
+The GPS-Saviour project is tested with the C++ header-only unit-testing framework [**catch**](https://github.com/philsquared/Catch).
 
 The test-documentation will be found within the [**docs**](https://github.com/Gitdev42/GPS-Saviour/tree/master/GPS-Saviour/docs) folder.
 The test-code can be found within the [**test**](https://github.com/Gitdev42/GPS-Saviour/tree/master/GPS-Saviour/test) folder.
