@@ -19,7 +19,8 @@ SOURCES += \
     src/GeoData.cpp \
     src/GSMAgent.cpp \
     test/GPSAgentTest.cpp \
-    test/NeedyClientTest.cpp
+    test/NeedyClientTest.cpp \
+    src/GSMPackage.cpp
 
 HEADERS += \
     include/catch.hpp \
@@ -27,4 +28,5 @@ HEADERS += \
     include/NeedyClient.h \
     include/GPSAgent.h \
     include/GSMAgent.h \
+    include/GSMPackage.h
 
