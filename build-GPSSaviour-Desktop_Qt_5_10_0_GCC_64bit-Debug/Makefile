@@ -56,14 +56,16 @@ SOURCES       = ../GPS-Saviour/main.cpp \
 		../GPS-Saviour/src/GeoData.cpp \
 		../GPS-Saviour/src/GSMAgent.cpp \
 		../GPS-Saviour/test/GPSAgentTest.cpp \
-		../GPS-Saviour/test/NeedyClientTest.cpp 
+		../GPS-Saviour/test/NeedyClientTest.cpp \
+		../GPS-Saviour/src/GSMPackage.cpp 
 OBJECTS       = main.o \
 		NeedyClient.o \
 		GPSAgent.o \
 		GeoData.o \
 		GSMAgent.o \
 		GPSAgentTest.o \
-		NeedyClientTest.o
+		NeedyClientTest.o \
+		GSMPackage.o
 DIST          = /opt/Qt/5.10.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt/5.10.0/gcc_64/mkspecs/common/unix.conf \
 		/opt/Qt/5.10.0/gcc_64/mkspecs/common/linux.conf \
@@ -243,13 +245,16 @@ DIST          = /opt/Qt/5.10.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../GPS-Saviour/include/GeoData.h \
 		../GPS-Saviour/include/NeedyClient.h \
 		../GPS-Saviour/include/GPSAgent.h \
-		../GPS-Saviour/include/GSMAgent.h ../GPS-Saviour/main.cpp \
+		../GPS-Saviour/include/GSMAgent.h \
+		../GPS-Saviour/include/GSMPackage.h \
+		../GPS-Saviour/include/Types.h ../GPS-Saviour/main.cpp \
 		../GPS-Saviour/src/NeedyClient.cpp \
 		../GPS-Saviour/src/GPSAgent.cpp \
 		../GPS-Saviour/src/GeoData.cpp \
 		../GPS-Saviour/src/GSMAgent.cpp \
 		../GPS-Saviour/test/GPSAgentTest.cpp \
-		../GPS-Saviour/test/NeedyClientTest.cpp
+		../GPS-Saviour/test/NeedyClientTest.cpp \
+		../GPS-Saviour/src/GSMPackage.cpp
 QMAKE_TARGET  = GPSSaviour
 DESTDIR       = 
 TARGET        = GPSSaviour
@@ -631,8 +636,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /opt/Qt/5.10.0/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../GPS-Saviour/include/catch.hpp ../GPS-Saviour/include/GeoData.h ../GPS-Saviour/include/NeedyClient.h ../GPS-Saviour/include/GPSAgent.h ../GPS-Saviour/include/GSMAgent.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../GPS-Saviour/main.cpp ../GPS-Saviour/src/NeedyClient.cpp ../GPS-Saviour/src/GPSAgent.cpp ../GPS-Saviour/src/GeoData.cpp ../GPS-Saviour/src/GSMAgent.cpp ../GPS-Saviour/test/GPSAgentTest.cpp ../GPS-Saviour/test/NeedyClientTest.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../GPS-Saviour/include/catch.hpp ../GPS-Saviour/include/GeoData.h ../GPS-Saviour/include/NeedyClient.h ../GPS-Saviour/include/GPSAgent.h ../GPS-Saviour/include/GSMAgent.h ../GPS-Saviour/include/GSMPackage.h ../GPS-Saviour/include/Types.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../GPS-Saviour/main.cpp ../GPS-Saviour/src/NeedyClient.cpp ../GPS-Saviour/src/GPSAgent.cpp ../GPS-Saviour/src/GeoData.cpp ../GPS-Saviour/src/GSMAgent.cpp ../GPS-Saviour/test/GPSAgentTest.cpp ../GPS-Saviour/test/NeedyClientTest.cpp ../GPS-Saviour/src/GSMPackage.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -684,6 +689,7 @@ main.o: ../GPS-Saviour/main.cpp ../GPS-Saviour/include/catch.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../GPS-Saviour/main.cpp
 
 NeedyClient.o: ../GPS-Saviour/src/NeedyClient.cpp ../GPS-Saviour/include/NeedyClient.h \
+		../GPS-Saviour/include/Types.h \
 		../GPS-Saviour/include/GPSAgent.h \
 		../GPS-Saviour/include/GeoData.h \
 		../GPS-Saviour/include/GSMAgent.h
@@ -696,7 +702,8 @@ GPSAgent.o: ../GPS-Saviour/src/GPSAgent.cpp ../GPS-Saviour/include/GPSAgent.h \
 GeoData.o: ../GPS-Saviour/src/GeoData.cpp ../GPS-Saviour/include/GeoData.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GeoData.o ../GPS-Saviour/src/GeoData.cpp
 
-GSMAgent.o: ../GPS-Saviour/src/GSMAgent.cpp ../GPS-Saviour/include/GSMAgent.h
+GSMAgent.o: ../GPS-Saviour/src/GSMAgent.cpp ../GPS-Saviour/include/GSMAgent.h \
+		../GPS-Saviour/include/Types.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GSMAgent.o ../GPS-Saviour/src/GSMAgent.cpp
 
 GPSAgentTest.o: ../GPS-Saviour/test/GPSAgentTest.cpp ../GPS-Saviour/include/catch.hpp \
@@ -706,10 +713,16 @@ GPSAgentTest.o: ../GPS-Saviour/test/GPSAgentTest.cpp ../GPS-Saviour/include/catc
 
 NeedyClientTest.o: ../GPS-Saviour/test/NeedyClientTest.cpp ../GPS-Saviour/include/catch.hpp \
 		../GPS-Saviour/include/NeedyClient.h \
+		../GPS-Saviour/include/Types.h \
 		../GPS-Saviour/include/GPSAgent.h \
 		../GPS-Saviour/include/GeoData.h \
 		../GPS-Saviour/include/GSMAgent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o NeedyClientTest.o ../GPS-Saviour/test/NeedyClientTest.cpp
+
+GSMPackage.o: ../GPS-Saviour/src/GSMPackage.cpp ../GPS-Saviour/include/GSMPackage.h \
+		../GPS-Saviour/include/Types.h \
+		../GPS-Saviour/include/GeoData.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GSMPackage.o ../GPS-Saviour/src/GSMPackage.cpp
 
 ####### Install
 

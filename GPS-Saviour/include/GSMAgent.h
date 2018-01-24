@@ -10,6 +10,7 @@
 #define GSMAgent_H
 
 #include <iostream>
+#include "Types.h"
 
 using namespace std;
 
@@ -18,7 +19,7 @@ class GSMAgent {
         /* --- constructors / destructors --- */
         GSMAgent() {};
 
-        /* --- getters / setters --- */
+        /* --- miscellaneous --- */
         void init();
         bool checkRequestForAuthentication();
         void requestData();

@@ -28,5 +28,6 @@ HEADERS += \
     include/NeedyClient.h \
     include/GPSAgent.h \
     include/GSMAgent.h \
-    include/GSMPackage.h
+    include/GSMPackage.h \
+    include/Types.h
 

@@ -10,7 +10,7 @@
 #define NeedyClient_H
 
 #include <iostream>
-
+#include "Types.h"
 #include "GPSAgent.h"
 #include "GSMAgent.h"
 
