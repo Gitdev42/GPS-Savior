@@ -38,6 +38,18 @@ bool GPSAgent::init() {
     return getConnectionEstablished();
 }
 
+/**
+ * GPSAgent::receiveGeoData
+ * @brief receives and stores geo-data from gps-sensor
+ * @return true if GPSAgent was able to receive and store data
+ *
+ * This function does bla bla bla bla
+ * bla bla bla bla
+ * bla bla bla bla
+ * bla bla bla bla
+ * bla bla bla bla
+ * bla bla bla bla
+ */
 bool GPSAgent::receiveGeoData() {
     if (init()){
         GeoData receivedData;
@@ -48,13 +60,18 @@ bool GPSAgent::receiveGeoData() {
         } else {
             return false;
         }
+    } else {
+        return false;
     }
 }
 
-
-void GPSAgent::saveGeoData(GeoData receivedData) {
+/**
+ * @brief GPSAgent::saveGeoData
+ * @param receivedData_
+ */
+void GPSAgent::saveGeoData(GeoData receivedData_) {
     cout << "GeoData Dummy received" << endl;
-    storedGeoData.push_back(receivedData);
+    storedGeoData.push_back(receivedData_);
 }
 
 void GPSAgent::receiveDataFromGPSChip() const {

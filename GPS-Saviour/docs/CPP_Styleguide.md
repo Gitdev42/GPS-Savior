@@ -1,5 +1,5 @@
-#C++ - Styleguide
-##Naming of identifiers
+# C++ - Styleguide
+## Naming of identifiers
 - Identifiers have to depend on the purpose the variable, function, constant, ... has to serve. **Always** choose a longer identifier, which describes the purpose better, than a short and easy to use identfier that does not show the clear purpose.
 - Every new word in an identifier, except for the first, is starting with a **capital letter** (except for names of constants).
 	- right : get**A**ddress()
@@ -51,7 +51,7 @@ class car {
 		- right : const bool SHOW_IN_DETAIL = false; 
 		- wrong : const bool showInDetail = false; 
 
-##Functions
+## Functions
 - Functions are ordered by use. 
 - The structure of order has two layers.
 	- The first layer is encapsulated by ** /\* --- layer1 --- \*/ **
@@ -84,18 +84,18 @@ class car {
 - getters and setters are always the very last functions
 
 
-##Declaration and implementation
+## Declaration and implementation
 - every class, with all its functions and attributes is declarated in a header-file
 - all functions except for getters and setters are implemented in a *.cpp - file
 - if structs and constants do not directly belong to a class define them in the Types.h - file
 
-##OOP (object - oriented - programming)
+## OOP (object - oriented - programming)
 - Information - hiding
 	- every class attribute **must** be private, do only use public class attributes if you have a really good reason for doing this
 	- class attributes are only read and modified by getters and setters. **No** private class attribute is read or modified directly.
 	- every function, that is used only within the class has to be private
 
-##Documentation
+## Documentation
 - Every file is documented by a ccDoc - comment (=java-doc) at the beginning of the file
 	- example :
 
@@ -139,10 +139,10 @@ class car {
 
 - The code has to be documented by inline-comments. Use as much documentation as possible. But do not write more documentation than code.
 
-##Testing
+## Testing
 - Every function needs a Unit-Test.
 - Every bug needs a Unit-Test.
 
-##Version Control
+## Version Control
 - Add a git repository for your project.
 - Commit every **finished** step of coding.
