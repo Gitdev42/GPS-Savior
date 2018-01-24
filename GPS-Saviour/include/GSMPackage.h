@@ -25,8 +25,8 @@ class GSMPackage {
         void setPackageType(PackageType packageType_);
         PackageType getPackageType();
 
-        void setGeoDataToSend(GeoData geoDataToSend_);
-        GeoData getGeoDataToSend();
+        void setGeoDataToSend(vector<GeoData> geoDataToSend_);
+        vector<GeoData> getGeoDataToSend();
 
         vector<int> getReceipientTelephoneNumbers() const;
         void setReceipientTelephoneNumbers(const vector<int> &val_);

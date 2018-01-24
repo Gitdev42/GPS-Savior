@@ -17,11 +17,11 @@ PackageType GSMPackage::getPackageType() {
     return packageType;
 }
 
-void GSMPackage::setGeoDataToSend(GeoData geoDataToSend_) {
+void GSMPackage::setGeoDataToSend(vector<GeoData> geoDataToSend_) {
     geoDataToSend = geoDataToSend_;
 }
 
-GeoData GSMPackage::getGeoDataToSend() {
+vector<GeoData> GSMPackage::getGeoDataToSend() {
     return geoDataToSend;
 }
 

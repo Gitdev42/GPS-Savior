@@ -20,7 +20,8 @@ SOURCES += \
     src/GSMAgent.cpp \
     test/GPSAgentTest.cpp \
     test/NeedyClientTest.cpp \
-    src/GSMPackage.cpp
+    src/GSMPackage.cpp \
+    test/GSMAgentTest.cpp
 
 HEADERS += \
     include/catch.hpp \

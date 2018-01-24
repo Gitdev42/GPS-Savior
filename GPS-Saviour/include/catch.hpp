@@ -6580,7 +6580,7 @@ namespace Catch {
 
         virtual void invoke() const {
             m_fun();
-        }
+       }
 
     private:
         virtual ~FreeFunctionTestCase();
