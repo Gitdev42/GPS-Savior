@@ -15,18 +15,10 @@
 
 
 
-void GSMAgent::init() {
+void GSMAgent::init(vector<int> partnerTelephoneNumbers_, int telephoneNumber_) {
     cout << "initialized GSMAgent" << endl;
 }
 
-bool GSMAgent::checkRequestForAuthentication()
-{
-    return true;
-}
-
-void GSMAgent::requestData() {
-    cout << "GSM Data requested" << endl;
-}
 
 void GSMAgent::sendData() {
     cout << "GSM Data send" << endl;

@@ -15,8 +15,9 @@
 
 
 void NeedyClient::init() {
+    vector<int> temp;
     gpsAgent.init();
-    gsmAgent.init();
+    gsmAgent.init(temp,0);
 }
 
 void NeedyClient::execute() {

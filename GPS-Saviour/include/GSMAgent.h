@@ -10,6 +10,7 @@
 #define GSMAgent_H
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -18,15 +19,34 @@ class GSMAgent {
         /* --- constructors / destructors --- */
         GSMAgent() {};
 
-        /* --- getters / setters --- */
-        void init();
-        bool checkRequestForAuthentication();
-        void requestData();
+        /* --- miscellaneous --- */
+        void init(vector<int> partnerTelephoneNumbers_, int telephoneNumber_);
+
+        /* --- request and receive data --- */
+        void sendRequestForLogging();
+        void sendRequesForData();
         void sendData();
-        void requestLoggingAndContinousData();
-        void sendContinousData();
+        void receiveData();
+        void receiveRequest();
+
+        /* --- getters / setters --- */
+        void setPartnerTelephoneNumbers(vector<int> val_);
+        vector<int> getPartnerTelephoneNumbers() const;
+
+        void setTelephoneNumber(int val_);
+        int getTelephoneNumber() const;
+
 
 private:
+        /* --- send / receive --- */
+        void receiveGSMPackage();
+        void sendGSMPackage();
+
+        /* --- authentication --- */
+        bool checkAuthenticationOfRequest();
+
+        vector<int> partnerTelephoneNumbers;
+        int telephoneNumber;
 
 
 };
