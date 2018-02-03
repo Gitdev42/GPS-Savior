@@ -60,6 +60,7 @@ GSMPackage GSMAgent::sendData() {
  */
 void GSMAgent::receiveData(GSMPackage gsmPackageToReceive_) {
     if (gsmPackageToReceive_.getPackageType() == PackageType::sendData) {
+        cout << receivedData.size() << endl;
         receivedData.insert(receivedData.end(),gsmPackageToReceive_.getGeoDataToSend().begin(),
                      gsmPackageToReceive_.getGeoDataToSend().end());
     }
