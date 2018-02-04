@@ -7,10 +7,10 @@
 ## GPSAgent class
 - [x] flowcharts
 - [x] documentation (gitdev1234)
-- [ ] tests (gitdev42 & gitdev1234)
-  - [ ] receiveGeoData
-  - [ ] saveGeoData
-- [ ] loadGeoData
+- [x] tests (gitdev42 & gitdev1234)
+  - [x] receiveGeoData
+  - [x] saveGeoData
+- [x] getStoredGeoData
 - [x] refactor (styleguide) (gitdev1234)
 
 
