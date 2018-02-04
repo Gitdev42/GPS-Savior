@@ -2,30 +2,13 @@
  * GPSAgent.cpp
  * Purpose: implements class GPSAgent
  *
- * @author TODO2
+ * @author Wall.Of.Death
  * @version 1.0
  */
 
 #include "../include/GPSAgent.h"
 
-/* --- getters / setters --- */
-/**
- * GPSAgent::setConnectionEstablished
- * @brief sets the class member connectionEstablished by the given value val_
- * @param val_ new value for class member connectionEstablished
- */
-void GPSAgent::setConnectionEstablished(bool val_) {
-    connectionEstablished = val_;
-}
-
-/**
- * GPSAgent::getConnectionEstablished
- * @brief returns the current value of the class member connectionEstablished
- * @return returns the current value of the class member connectionEstablished
- */
-bool GPSAgent::getConnectionEstablished() const {
-    return connectionEstablished;
-}
+/* ---------- PUBLIC FUNCTIONS ---------- */
 
 /* --- constructors / destructors --- */
 /**
@@ -39,7 +22,7 @@ GPSAgent::GPSAgent() {
     init();
 }
 
-/* --- miscellaneous --- */
+/* --- initialize / receive --- */
 
 /**
  * GPSAgent::init
@@ -84,6 +67,47 @@ bool GPSAgent::receiveGeoData() {
     }
 }
 
+/* ---------- PRIVATE FUNCTIONS ---------- */
+
+/* --- getters / setters --- */
+/**
+ * GPSAgent::setConnectionEstablished
+ * @brief sets the class member connectionEstablished by the given value val_
+ * @param val_ new value for class member connectionEstablished
+ */
+void GPSAgent::setConnectionEstablished(bool val_) {
+    connectionEstablished = val_;
+}
+
+/**
+ * GPSAgent::getConnectionEstablished
+ * @brief returns the current value of the class member connectionEstablished
+ * @return returns the current value of the class member connectionEstablished
+ */
+bool GPSAgent::getConnectionEstablished() const {
+    return connectionEstablished;
+}
+
+/* --- receive / convert / save --- */
+/**
+ * GPSAgent::receiveDataFromGPSChip
+ * @brief receive raw data from GPS-chip
+ *
+ * This function receives the raw binary data from the hardware GPS-chip.
+ */
+void GPSAgent::receiveDataFromGPSChip()  {
+    cout << "Received Data From GPS Chip" << endl;
+}
+
+/**
+ * GPSAgent::testRecievedData
+ * @brief checks if received data is valid
+ * @return returns true if received data is valid
+ */
+bool GPSAgent::testRecievedData() const {
+   return true;
+}
+
 /**
  * GPSAgent::saveGeoData
  * @brief save GeoData-object receivedData_ in the vector storedGeoData
@@ -97,15 +121,11 @@ void GPSAgent::saveGeoData(GeoData receivedData_) {
     storedGeoData.push_back(receivedData_);
 }
 
-void GPSAgent::receiveDataFromGPSChip() const {
-    cout << "Received Data From GPS Chip" << endl;
-}
-
-bool GPSAgent::testRecievedData()
-{
-   return true;
-}
-
+/**
+ * GPSAgent::convertReceivedDataIntoGeoData
+ * @brief convert raw gps-data into GeoData-object
+ * @return return GeoData-object which contains the data of the raw gps-data
+ */
 GeoData GPSAgent::convertReceivedDataIntoGeoData() const {
     buffer.createDummyGeoData();
     return buffer.getGeoData();

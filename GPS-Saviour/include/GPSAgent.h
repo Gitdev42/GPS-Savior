@@ -34,23 +34,27 @@ class GPSAgent {
         /* --- constructors / destructors --- */
         GPSAgent();
 
-        /* --- miscellaneous --- */
+        /* --- initialize / receive --- */
         bool init();
         bool receiveGeoData();
-        void receiveDataFromGPSChip() const;
-        bool testRecievedData();
-        void saveGeoData(GeoData receivedData_);
-        GeoData convertReceivedDataIntoGeoData() const;
 
         /* --- getters / setters --- */
         void setConnectionEstablished(bool val_);
         bool getConnectionEstablished() const;
 
-private:
-    bool connectionEstablished;
-    vector<GeoData> storedGeoData;
-    // for testing purposes
-    TestBuffer& buffer = TestBuffer::getInstance();
+    private:
+        /* --- receive / convert / save --- */
+        void receiveDataFromGPSChip();
+        bool testRecievedData() const;
+        void saveGeoData(GeoData receivedData_);
+        GeoData convertReceivedDataIntoGeoData() const;
+
+        /* --- private member variables --- */
+        bool connectionEstablished;
+        vector<GeoData> storedGeoData;
+
+        // for testing purposes
+        TestBuffer& buffer = TestBuffer::getInstance();
 
 };
 
