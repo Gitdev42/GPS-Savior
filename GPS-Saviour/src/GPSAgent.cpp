@@ -55,6 +55,7 @@ bool GPSAgent::receiveGeoData() {
     if (init()){
         GeoData receivedData;
         // receive, convert and save data
+        receiveDataFromGPSChip();
         if (testRecievedData()){
             receivedData = convertReceivedDataIntoGeoData();
             saveGeoData(receivedData);
@@ -86,6 +87,15 @@ void GPSAgent::setConnectionEstablished(bool val_) {
  */
 bool GPSAgent::getConnectionEstablished() const {
     return connectionEstablished;
+}
+
+/**
+ * GPSAgent::getStoredGeoData
+ * @brief returns the class member storedGeoData
+ * @return returns the class member storedGeoData
+ */
+vector<GeoData> GPSAgent::getStoredGeoData() const {
+    return storedGeoData;
 }
 
 /* --- receive / convert / save --- */
@@ -127,7 +137,6 @@ void GPSAgent::saveGeoData(GeoData receivedData_) {
  * @return return GeoData-object which contains the data of the raw gps-data
  */
 GeoData GPSAgent::convertReceivedDataIntoGeoData() const {
-    buffer.createDummyGeoData();
     return buffer.getGeoData();
 }
 

@@ -37,7 +37,7 @@ class TestBuffer {
         ~TestBuffer() {}
 
 
-        void createDummyGeoData();
+        GeoData createDummyGeoData();
 
         GSMPackage getGsmPackage() const;
         void setGsmPackage(const GSMPackage &val_);

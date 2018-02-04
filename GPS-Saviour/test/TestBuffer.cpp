@@ -10,7 +10,7 @@
 #include "TestBuffer.h"
 
 
-void TestBuffer::createDummyGeoData() {
+GeoData TestBuffer::createDummyGeoData() {
     GeoData geoD;
     /* initialize random seed: */
     srand (time(NULL));
@@ -20,7 +20,7 @@ void TestBuffer::createDummyGeoData() {
     geoD.setLatitude(54.382868 + noise);
     geoD.setLongitude(10.955257 + noise);
     geoD.setCTime(getTimeMs64());
-    setGeoData(geoD);
+    return geoD;
 }
 
 GSMPackage TestBuffer::getGsmPackage() const {

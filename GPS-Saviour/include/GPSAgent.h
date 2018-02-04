@@ -42,6 +42,8 @@ class GPSAgent {
         void setConnectionEstablished(bool val_);
         bool getConnectionEstablished() const;
 
+        vector<GeoData> getStoredGeoData() const;
+
     private:
         /* --- receive / convert / save --- */
         void receiveDataFromGPSChip();
