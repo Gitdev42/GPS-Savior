@@ -6,12 +6,12 @@
 
 ## GPSAgent class
 - [x] flowcharts
-- [ ] documentation (gitdev1234)
+- [x] documentation (gitdev1234)
 - [ ] tests (gitdev42 & gitdev1234)
   - [ ] receiveGeoData
   - [ ] saveGeoData
 - [ ] loadGeoData
-- [ ] refactor (styleguide) (gitdev1234)
+- [x] refactor (styleguide) (gitdev1234)
 
 
 ## GSMAgent
