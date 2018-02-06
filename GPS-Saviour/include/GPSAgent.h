@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include <vector>
-
+// ----
 #include "GeoData.h"
 #include "TestBuffer.h"
 
@@ -48,7 +48,7 @@ class GPSAgent {
         /* --- receive / convert / save --- */
         void receiveDataFromGPSChip();
         bool testRecievedData() const;
-        void saveGeoData(GeoData receivedData_);
+        void saveGeoData(const GeoData& receivedData_);
         GeoData convertReceivedDataIntoGeoData() const;
 
         /* --- private member variables --- */

@@ -126,7 +126,7 @@ bool GPSAgent::testRecievedData() const {
  * This function saves the GeoData-object receivedData_ within the vector
  * of GeoData storedGeoData.
  */
-void GPSAgent::saveGeoData(GeoData receivedData_) {
+void GPSAgent::saveGeoData(const GeoData& receivedData_) {
     cout << "GeoData Dummy received" << endl;
     storedGeoData.push_back(receivedData_);
 }
