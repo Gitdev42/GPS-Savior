@@ -36,10 +36,10 @@ class GSMAgent {
         void init(vector<int> partnerTelephoneNumbers_, int telephoneNumber_);
 
         /* --- request and receive data --- */
-        GSMPackage sendRequestForAuth();
-        GSMPackage sendRequestForLogging();
-        GSMPackage sendRequestForData();
-        GSMPackage sendData();
+        void sendRequestForAuth();
+        void sendRequestForLogging();
+        void sendRequestForData();
+        void sendData();
         void receiveData(GSMPackage gsmPackageToReceive_);
         void receiveRequest(GSMPackage gsmPackageToReceive_);
 

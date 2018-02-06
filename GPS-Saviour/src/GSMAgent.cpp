@@ -31,41 +31,41 @@ void GSMAgent::init(vector<int> partnerTelephoneNumbers_, int telephoneNumber_) 
 /**
  * @brief GSMAgent::sendRequestForAuth
  */
-GSMPackage GSMAgent::sendRequestForAuth() {
+void GSMAgent::sendRequestForAuth() {
     GSMPackage gsmPackageToSend;
     gsmPackageToSend.setPackageType(PackageType::requestForAuth);
     gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
     gsmPackageToSend.setSenderTelephoneNumber(getTelephoneNumber());
-    return sendGSMPackage(gsmPackageToSend);
+    sendGSMPackage(gsmPackageToSend);
 
 }
 
 /**
  * @brief GSMAgent::sendRequestForLogging
  */
-GSMPackage GSMAgent::sendRequestForLogging() {
+void GSMAgent::sendRequestForLogging() {
     GSMPackage gsmPackageToSend;
     gsmPackageToSend.setPackageType(PackageType::requestLogging);
     gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
     gsmPackageToSend.setSenderTelephoneNumber(getTelephoneNumber());
-    return sendGSMPackage(gsmPackageToSend);
+    sendGSMPackage(gsmPackageToSend);
 }
 
 /**
  * @brief GSMAgent::sendRequesForData
  */
-GSMPackage GSMAgent::sendRequestForData() {
+void GSMAgent::sendRequestForData() {
     GSMPackage gsmPackageToSend;
     gsmPackageToSend.setPackageType(PackageType::requestData);
     gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
     gsmPackageToSend.setSenderTelephoneNumber(getTelephoneNumber());
-    return sendGSMPackage(gsmPackageToSend);
+    sendGSMPackage(gsmPackageToSend);
 }
 
 /**
  * @brief GSMAgent::sendData
  */
-GSMPackage GSMAgent::sendData() {
+void GSMAgent::sendData() {
 
 }
 
