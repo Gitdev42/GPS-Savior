@@ -18,6 +18,7 @@ using namespace std;
  * @brief GSMAgent::init
  * @param partnerTelephoneNumbers_
  * @param telephoneNumber_
+ *
  */
 void GSMAgent::init(vector<int> partnerTelephoneNumbers_, int telephoneNumber_) {
     cout << "initialized GSMAgent" << endl;
@@ -26,6 +27,19 @@ void GSMAgent::init(vector<int> partnerTelephoneNumbers_, int telephoneNumber_) 
 }
 
 /* --- request and receive data --- */
+
+/**
+ * @brief GSMAgent::sendRequestForAuth
+ */
+GSMPackage GSMAgent::sendRequestForAuth() {
+    GSMPackage gsmPackageToSend;
+    gsmPackageToSend.setPackageType(PackageType::requestForAuth);
+    gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
+    gsmPackageToSend.setSenderTelephoneNumber(getTelephoneNumber());
+    return sendGSMPackage(gsmPackageToSend);
+
+}
+
 /**
  * @brief GSMAgent::sendRequestForLogging
  */
@@ -72,7 +86,8 @@ void GSMAgent::receiveRequest(GSMPackage gsmPackageToReceive_) {
     if (gsmPackageToReceive_.getPackageType() == PackageType::requestForAuth) {
 
     } else if (gsmPackageToReceive_.getPackageType() == PackageType::requestLogging) {
-
+        lastReceivedGSMPackage = gsmPackageToReceive_.getPackageType();
+        sendRequestForAuth();
     } else if (gsmPackageToReceive_.getPackageType() == PackageType::requestData) {
 
     }

@@ -17,6 +17,14 @@
 
 using namespace std;
 
+/**
+ * @brief The GSMAgent class handles all GSM-functions within this project
+ *
+ * The GSMAgent class handles all GSM functionality for this project.
+ * This includes an SSH inspired authentification and the Definitions of every
+ * GSM-Package used in this Program
+ * He also store and manage all unlocked Telephonenumbers
+ */
 class GSMAgent {
     public:
         /* --- constructors / destructors --- */
@@ -26,6 +34,7 @@ class GSMAgent {
         void init(vector<int> partnerTelephoneNumbers_, int telephoneNumber_);
 
         /* --- request and receive data --- */
+        GSMPackage sendRequestForAuth();
         GSMPackage sendRequestForLogging();
         GSMPackage sendRequestForData();
         GSMPackage sendData();
@@ -51,6 +60,7 @@ private:
         vector<int> partnerTelephoneNumbers;
         int telephoneNumber;
         vector<GeoData> receivedData;
+        PackageType lastReceivedGSMPackage;
 
 
 };
