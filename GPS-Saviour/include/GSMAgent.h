@@ -10,9 +10,11 @@
 #define GSMAgent_H
 
 #include <iostream>
-#include "Types.h"
 #include <vector>
+//-----
+#include "Types.h"
 #include "GSMPackage.h"
+#include "TestBuffer.h"
 
 
 using namespace std;
@@ -51,8 +53,8 @@ class GSMAgent {
 
 private:
         /* --- send / receive --- */
-        void receiveGSMPackage();
-        GSMPackage sendGSMPackage(GSMPackage gsmPackageToSend_);
+        GSMPackage receiveGSMPackage();
+        void sendGSMPackage(GSMPackage gsmPackageToSend_);
 
         /* --- authentication --- */
         bool checkAuthenticationOfRequest();
@@ -61,6 +63,9 @@ private:
         int telephoneNumber;
         vector<GeoData> receivedData;
         PackageType lastReceivedGSMPackage;
+
+        // for testing purposes
+        TestBuffer& buffer = TestBuffer::getInstance();
 
 
 };

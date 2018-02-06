@@ -131,16 +131,16 @@ int GSMAgent::getTelephoneNumber() const {
 /**
  * @brief GSMAgent::receiveGSMPackage
  */
-void GSMAgent::receiveGSMPackage() {
-
+GSMPackage GSMAgent::receiveGSMPackage() {
+    return buffer.getGsmPackage();
 }
 
 /**
  * @brief sendGSMPackage
  */
-GSMPackage GSMAgent::sendGSMPackage(GSMPackage gsmPackageToSend_) {
+void GSMAgent::sendGSMPackage(GSMPackage gsmPackageToSend_) {
     cout << "succesfully sent GSM Package" << endl;
-    return gsmPackageToSend_;
+    buffer.setGsmPackage(gsmPackageToSend_);
 }
 
 /* --- authentication --- */
