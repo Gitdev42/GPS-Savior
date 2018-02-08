@@ -7,6 +7,9 @@ TARGET = GPSSaviour
 CONFIG += console
 CONFIG -= app_bundle
 
+QMAKE_CXXFLAGS += --coverage
+QMAKE_LFLAGS += --coverage
+
 TEMPLATE = app
 
 INCLUDEPATH += include/
