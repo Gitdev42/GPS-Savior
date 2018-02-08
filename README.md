@@ -1,4 +1,7 @@
 # GPS-Saviour
+
+[![Build Status](https://travis-ci.org/Gitdev42/GPS-Saviour.svg?branch=master)](https://travis-ci.org/Gitdev42/GPS-Saviour) [![Coverage Status](https://coveralls.io/repos/github/Gitdev42/GPS-Saviour/badge.svg?branch=master)](https://coveralls.io/github/Gitdev42/GPS-Saviour?branch=master)
+
 **GPS-Saviour** will be a Software to run on an GPS-GSM-module to locate lost stuff.
 
 The GPS-Saviour project consist out of two main parts:
