@@ -31,7 +31,7 @@ void GSMAgent::init(vector<int> partnerTelephoneNumbers_, int telephoneNumber_) 
 /**
  * @brief GSMAgent::sendRequestForAuth
  */
-void GSMAgent::sendRequestForAuth() {
+void GSMAgent::sendRequestForAuth() const {
     GSMPackage gsmPackageToSend;
     gsmPackageToSend.setPackageType(PackageType::requestForAuth);
     gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
@@ -43,7 +43,7 @@ void GSMAgent::sendRequestForAuth() {
 /**
  * @brief GSMAgent::sendRequestForLogging
  */
-void GSMAgent::sendRequestForLogging() {
+void GSMAgent::sendRequestForLogging() const {
     GSMPackage gsmPackageToSend;
     gsmPackageToSend.setPackageType(PackageType::requestLogging);
     gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
@@ -54,7 +54,7 @@ void GSMAgent::sendRequestForLogging() {
 /**
  * @brief GSMAgent::sendRequesForData
  */
-void GSMAgent::sendRequestForData() {
+void GSMAgent::sendRequestForData() const {
     GSMPackage gsmPackageToSend;
     gsmPackageToSend.setPackageType(PackageType::requestData);
     gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
@@ -65,8 +65,13 @@ void GSMAgent::sendRequestForData() {
 /**
  * @brief GSMAgent::sendData
  */
-void GSMAgent::sendData() {
-
+void GSMAgent::sendData(const vector<GeoData> &dataToSend_) const {
+    GSMPackage gsmPackageToSend;
+    gsmPackageToSend.setPackageType(PackageType::sendData);
+    gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
+    gsmPackageToSend.setSenderTelephoneNumber(getTelephoneNumber());
+    gsmPackageToSend.setGeoDataToSend(dataToSend_);
+    sendGSMPackage(gsmPackageToSend);
 }
 
 /**
@@ -138,7 +143,7 @@ GSMPackage GSMAgent::receiveGSMPackage() {
 /**
  * @brief sendGSMPackage
  */
-void GSMAgent::sendGSMPackage(GSMPackage gsmPackageToSend_) {
+void GSMAgent::sendGSMPackage(GSMPackage gsmPackageToSend_) const {
     cout << "succesfully sent GSM Package" << endl;
     buffer.setGsmPackage(gsmPackageToSend_);
 }

@@ -36,10 +36,10 @@ class GSMAgent {
         void init(vector<int> partnerTelephoneNumbers_, int telephoneNumber_);
 
         /* --- request and receive data --- */
-        void sendRequestForAuth();
-        void sendRequestForLogging();
-        void sendRequestForData();
-        void sendData();
+        void sendRequestForAuth() const;
+        void sendRequestForLogging() const;
+        void sendRequestForData() const;
+        void sendData(const vector<GeoData>& dataToSend_) const;
         void receiveData(GSMPackage gsmPackageToReceive_);
         void receiveRequest(GSMPackage gsmPackageToReceive_);
 
@@ -54,7 +54,7 @@ class GSMAgent {
 private:
         /* --- send / receive --- */
         GSMPackage receiveGSMPackage();
-        void sendGSMPackage(GSMPackage gsmPackageToSend_);
+        void sendGSMPackage(GSMPackage gsmPackageToSend_) const;
 
         /* --- authentication --- */
         bool checkAuthenticationOfRequest();
