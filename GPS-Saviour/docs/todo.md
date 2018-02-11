@@ -19,6 +19,8 @@
 - [ ] documentation
 - [ ] tests
 - [ ] refactor (styleguide)
+- [ ] add ability to select a Telephonenumber in logging and Data requests
+- [ ] requestForAuth actually sends an request to all stored Telephonenumbers.. change to sender of the last received GSMPackage
 
 
 ## NeedyClient 

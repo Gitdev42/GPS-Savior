@@ -30,6 +30,9 @@ void GSMAgent::init(vector<int> partnerTelephoneNumbers_, int telephoneNumber_) 
 
 /**
  * @brief GSMAgent::sendRequestForAuth
+ *
+ * send an request for authentification to all stored TelephoneNumbers
+ * this is used every time an GSMPackage is recieved
  */
 void GSMAgent::sendRequestForAuth() {
     GSMPackage gsmPackageToSend;
@@ -42,6 +45,8 @@ void GSMAgent::sendRequestForAuth() {
 
 /**
  * @brief GSMAgent::sendRequestForLogging
+ *
+ * sends an logging request to all stored NeedyClients (number selection will be added)
  */
 void GSMAgent::sendRequestForLogging() {
     GSMPackage gsmPackageToSend;
@@ -53,6 +58,8 @@ void GSMAgent::sendRequestForLogging() {
 
 /**
  * @brief GSMAgent::sendRequesForData
+ *
+ * sends an request for data to all stored NeedyClienets (number selection will be added)
  */
 void GSMAgent::sendRequestForData() {
     GSMPackage gsmPackageToSend;
@@ -71,6 +78,8 @@ void GSMAgent::sendData() {
 
 /**
  * @brief receiveData
+ *
+ * re
  */
 void GSMAgent::receiveData(GSMPackage gsmPackageToReceive_) {
     if (gsmPackageToReceive_.getPackageType() == PackageType::sendData) {
@@ -81,6 +90,8 @@ void GSMAgent::receiveData(GSMPackage gsmPackageToReceive_) {
 
 /**
  * @brief receiveRequest
+ *
+ * check type of recieved GSMPackage, stores the type last of the last GSMPackage and answers the received Packages depending on the type
  */
 void GSMAgent::receiveRequest(GSMPackage gsmPackageToReceive_) {
     if (gsmPackageToReceive_.getPackageType() == PackageType::requestForAuth) {
@@ -89,7 +100,8 @@ void GSMAgent::receiveRequest(GSMPackage gsmPackageToReceive_) {
         lastReceivedGSMPackage = gsmPackageToReceive_.getPackageType();
         sendRequestForAuth();
     } else if (gsmPackageToReceive_.getPackageType() == PackageType::requestData) {
-
+        lastReceivedGSMPackage = gsmPackageToReceive_.getPackageType();
+        sendRequestForAuth();
     }
 
 }
