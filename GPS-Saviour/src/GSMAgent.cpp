@@ -34,7 +34,7 @@ void GSMAgent::init(vector<int> partnerTelephoneNumbers_, int telephoneNumber_) 
  * send an request for authentification to all stored TelephoneNumbers
  * this is used every time an GSMPackage is recieved
  */
-void GSMAgent::sendRequestForAuth() {
+void GSMAgent::sendRequestForAuth() const {
     GSMPackage gsmPackageToSend;
     gsmPackageToSend.setPackageType(PackageType::requestForAuth);
     gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
@@ -48,7 +48,7 @@ void GSMAgent::sendRequestForAuth() {
  *
  * sends an logging request to all stored NeedyClients (number selection will be added)
  */
-void GSMAgent::sendRequestForLogging() {
+void GSMAgent::sendRequestForLogging() const {
     GSMPackage gsmPackageToSend;
     gsmPackageToSend.setPackageType(PackageType::requestLogging);
     gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
@@ -61,7 +61,7 @@ void GSMAgent::sendRequestForLogging() {
  *
  * sends an request for data to all stored NeedyClienets (number selection will be added)
  */
-void GSMAgent::sendRequestForData() {
+void GSMAgent::sendRequestForData() const {
     GSMPackage gsmPackageToSend;
     gsmPackageToSend.setPackageType(PackageType::requestData);
     gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
@@ -72,8 +72,13 @@ void GSMAgent::sendRequestForData() {
 /**
  * @brief GSMAgent::sendData
  */
-void GSMAgent::sendData() {
-
+void GSMAgent::sendData(const vector<GeoData> &dataToSend_) const {
+    GSMPackage gsmPackageToSend;
+    gsmPackageToSend.setPackageType(PackageType::sendData);
+    gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
+    gsmPackageToSend.setSenderTelephoneNumber(getTelephoneNumber());
+    gsmPackageToSend.setGeoDataToSend(dataToSend_);
+    sendGSMPackage(gsmPackageToSend);
 }
 
 /**
@@ -150,7 +155,7 @@ GSMPackage GSMAgent::receiveGSMPackage() {
 /**
  * @brief sendGSMPackage
  */
-void GSMAgent::sendGSMPackage(GSMPackage gsmPackageToSend_) {
+void GSMAgent::sendGSMPackage(GSMPackage gsmPackageToSend_) const {
     cout << "succesfully sent GSM Package" << endl;
     buffer.setGsmPackage(gsmPackageToSend_);
 }
