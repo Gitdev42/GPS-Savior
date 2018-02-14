@@ -15,7 +15,9 @@ SOURCES *= \
     ./GPS-Saviour/test/GPSAgentTest.cpp \
     ./GPS-Saviour/test/GSMAgentTest.cpp \
     ./GPS-Saviour/test/NeedyClientTest.cpp \
-    ./GPS-Saviour/test/TestBuffer.cpp
+    ./GPS-Saviour/test/TestBuffer.cpp \
+    GPS-Saviour/test/SaviourClientTest.cpp \
+    GPS-Saviour/src/SaviourClient.cpp
 
 HEADERS *= \
     ./GPS-Saviour/include/GPSAgent.h \
@@ -25,7 +27,8 @@ HEADERS *= \
     ./GPS-Saviour/include/NeedyClient.h \
     ./GPS-Saviour/include/Types.h \
     ./GPS-Saviour/include/catch.hpp \
-    ./GPS-Saviour/test/TestBuffer.h
+    ./GPS-Saviour/test/TestBuffer.h \
+    GPS-Saviour/include/SaviourClient.h
 
 PATHS *= \
     . \
