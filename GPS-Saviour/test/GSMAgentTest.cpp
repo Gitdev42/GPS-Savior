@@ -24,5 +24,5 @@ TEST_CASE("Test GSMAgent") {
     vGeoD.push_back(geoD);
     gsmP.setPackageType(PackageType::sendData);
     gsmP.setGeoDataToSend(vGeoD);
-    gsmA.receiveData(gsmP);
+    gsmA.receiveData();
 }

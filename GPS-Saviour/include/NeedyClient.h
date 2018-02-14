@@ -23,12 +23,25 @@ class NeedyClient {
         void init();
         void execute();
 
+
+
+
+
         /* --- getters / setters --- */
 
     private:
         GPSAgent gpsAgent;
         GSMAgent gsmAgent;
 
+
+        /* --- Needy Features --- */
+
+        bool buttonActiv;
+        bool receiveActiv;
+        bool secureAreaActiv;
+        bool buttonPressed;
+        bool requestReceived;
+        bool outsideSecureArea;
 
 
 };

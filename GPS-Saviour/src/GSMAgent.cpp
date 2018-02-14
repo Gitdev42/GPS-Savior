@@ -21,9 +21,13 @@ using namespace std;
  *
  */
 void GSMAgent::init(vector<int> partnerTelephoneNumbers_, int telephoneNumber_) {
-    cout << "initialized GSMAgent" << endl;
     setPartnerTelephoneNumbers(partnerTelephoneNumbers_);
     setTelephoneNumber(telephoneNumber_);
+    if (! getGSMConnectionEstablished()) {
+        setGSMConnectionEstablished(true);
+        cout << "GSMConnectionEstablished" << endl;
+    }
+   cout << "initialized GSMAgent" << endl;
 }
 
 /* --- request and receive data --- */
@@ -86,9 +90,11 @@ void GSMAgent::sendData(const vector<GeoData> &dataToSend_) const {
  *
  * re
  */
-void GSMAgent::receiveData(GSMPackage gsmPackageToReceive_) {
-    if (gsmPackageToReceive_.getPackageType() == PackageType::sendData) {
-        vector<GeoData> geoDataToSend = gsmPackageToReceive_.getGeoDataToSend();
+void GSMAgent::receiveData() {
+    GSMPackage gsmPackageToReceive;
+    gsmPackageToReceive = receiveGSMPackage();
+    if (gsmPackageToReceive.getPackageType() == PackageType::sendData) {
+        vector<GeoData> geoDataToSend = gsmPackageToReceive.getGeoDataToSend();
         receivedData.insert(receivedData.end(),geoDataToSend.begin(),geoDataToSend.end());
     }
 }
@@ -98,17 +104,18 @@ void GSMAgent::receiveData(GSMPackage gsmPackageToReceive_) {
  *
  * check type of recieved GSMPackage, stores the type last of the last GSMPackage and answers the received Packages depending on the type
  */
-void GSMAgent::receiveRequest(GSMPackage gsmPackageToReceive_) {
-    if (gsmPackageToReceive_.getPackageType() == PackageType::requestForAuth) {
+GSMPackage GSMAgent::receiveRequest() {
+    return receiveGSMPackage();
+}
 
-    } else if (gsmPackageToReceive_.getPackageType() == PackageType::requestLogging) {
-        lastReceivedGSMPackage = gsmPackageToReceive_.getPackageType();
-        sendRequestForAuth();
-    } else if (gsmPackageToReceive_.getPackageType() == PackageType::requestData) {
-        lastReceivedGSMPackage = gsmPackageToReceive_.getPackageType();
-        sendRequestForAuth();
-    }
+void GSMAgent::setGSMConnectionEstablished(bool val_)
+{
+    gsmConnetionEstablished = val_;
+}
 
+bool GSMAgent::getGSMConnectionEstablished() const
+{
+    return gsmConnetionEstablished;
 }
 
 /* --- getters / setters --- */

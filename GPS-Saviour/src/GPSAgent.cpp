@@ -18,7 +18,7 @@
  * false and starts the initialization of the GPSAgent
  */
 GPSAgent::GPSAgent() {
-    setConnectionEstablished(false);
+    setGPSConnectionEstablished(false);
     init();
 }
 
@@ -34,11 +34,11 @@ GPSAgent::GPSAgent() {
  * member connectionEstablished is set to true.
  */
 bool GPSAgent::init() {
-    if (! getConnectionEstablished()) {
-        setConnectionEstablished(true);
+    if (! getGPSConnectionEstablished()) {
+        setGPSConnectionEstablished(true);
         cout << "initialized GPSAgent" << endl;
     }
-    return getConnectionEstablished();
+    return getGPSConnectionEstablished();
 }
 
 /**
@@ -72,21 +72,21 @@ bool GPSAgent::receiveGeoData() {
 
 /* --- getters / setters --- */
 /**
- * GPSAgent::setConnectionEstablished
+ * GPSAgent::setGPSConnectionEstablished
  * @brief sets the class member connectionEstablished by the given value val_
  * @param val_ new value for class member connectionEstablished
  */
-void GPSAgent::setConnectionEstablished(bool val_) {
-    connectionEstablished = val_;
+void GPSAgent::setGPSConnectionEstablished(bool val_) {
+    gpsConnectionEstablished = val_;
 }
 
 /**
- * GPSAgent::getConnectionEstablished
+ * GPSAgent::getGPSConnectionEstablished
  * @brief returns the current value of the class member connectionEstablished
  * @return returns the current value of the class member connectionEstablished
  */
-bool GPSAgent::getConnectionEstablished() const {
-    return connectionEstablished;
+bool GPSAgent::getGPSConnectionEstablished() const {
+    return gpsConnectionEstablished;
 }
 
 /**

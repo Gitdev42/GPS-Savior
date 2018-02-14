@@ -1,4 +1,4 @@
-/**
+﻿/**
  * GSMAgent.h
  * Purpose: defines class GSMAgent
  *
@@ -40,10 +40,13 @@ class GSMAgent {
         void sendRequestForLogging() const;
         void sendRequestForData() const;
         void sendData(const vector<GeoData>& dataToSend_) const;
-        void receiveData(GSMPackage gsmPackageToReceive_);
-        void receiveRequest(GSMPackage gsmPackageToReceive_);
+        void receiveData();
+        GSMPackage receiveRequest();
 
         /* --- getters / setters --- */
+        void setGSMConnectionEstablished(bool val_);
+        bool getGSMConnectionEstablished() const;
+
         void setPartnerTelephoneNumbers(vector<int> val_);
         vector<int> getPartnerTelephoneNumbers() const;
 
@@ -63,6 +66,7 @@ private:
         int telephoneNumber;
         vector<GeoData> receivedData;
         PackageType lastReceivedGSMPackage;
+        bool gsmConnetionEstablished;
 
         // for testing purposes
         TestBuffer& buffer = TestBuffer::getInstance();

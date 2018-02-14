@@ -39,8 +39,8 @@ class GPSAgent {
         bool receiveGeoData();
 
         /* --- getters / setters --- */
-        void setConnectionEstablished(bool val_);
-        bool getConnectionEstablished() const;
+        void setGPSConnectionEstablished(bool val_);
+        bool getGPSConnectionEstablished() const;
 
         vector<GeoData> getStoredGeoData() const;
 
@@ -52,7 +52,7 @@ class GPSAgent {
         GeoData convertReceivedDataIntoGeoData() const;
 
         /* --- private member variables --- */
-        bool connectionEstablished;
+        bool gpsConnectionEstablished;
         vector<GeoData> storedGeoData;
 
         // for testing purposes
