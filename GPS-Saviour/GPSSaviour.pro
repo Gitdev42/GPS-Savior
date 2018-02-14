@@ -26,7 +26,8 @@ SOURCES += \
     src/GSMPackage.cpp \
     test/TestBuffer.cpp \
     test/GSMAgentTest.cpp \
-    src/SaviourClient.cpp
+    src/SaviourClient.cpp \
+    test/SaviourClientTest.cpp
 
 HEADERS += \
     include/catch.hpp \
