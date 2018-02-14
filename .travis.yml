@@ -11,8 +11,7 @@ install:
 
 script:
   - source /opt/qt55/bin/qt55-env.sh
-  - cd GPS-Saviour
-  - /opt/qt55/bin/qmake -makefile
+  - /opt/qt55/bin/qmake
   - make clean
   - make
   - ./GPSSaviour
