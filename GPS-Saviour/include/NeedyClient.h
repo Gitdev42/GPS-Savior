@@ -1,8 +1,8 @@
 /**
- * TODO1.h
- * Purpose: defines class TODO1
+ * NeedyClient.h
+ * Purpose: defines class NeedyClient
  *
- * @author TODO2
+ * @author Wall.Of.Death
  * @version 1.0
  */
 

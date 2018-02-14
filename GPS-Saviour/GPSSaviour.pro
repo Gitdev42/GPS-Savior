@@ -25,7 +25,8 @@ SOURCES += \
     test/NeedyClientTest.cpp \
     src/GSMPackage.cpp \
     test/TestBuffer.cpp \
-    test/GSMAgentTest.cpp
+    test/GSMAgentTest.cpp \
+    src/SaviourClient.cpp
 
 HEADERS += \
     include/catch.hpp \
@@ -35,5 +36,6 @@ HEADERS += \
     include/GSMAgent.h \
     include/GSMPackage.h \
     include/Types.h \
-    test/TestBuffer.h
+    test/TestBuffer.h \
+    include/SaviourClient.h
 

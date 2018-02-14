@@ -40,6 +40,7 @@ class GSMAgent {
         void sendRequestForLogging() const;
         void sendRequestForData() const;
         void sendData(const vector<GeoData>& dataToSend_) const;
+        void sendAuth() const;
         void receiveData(GSMPackage gsmPackageToReceive_);
         void receiveRequest(GSMPackage gsmPackageToReceive_);
 
