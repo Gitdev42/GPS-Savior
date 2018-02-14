@@ -14,7 +14,7 @@
 /* --- constants --- */
 
 /* --- enumerations --- */
-enum PackageType {requestForAuth, requestData, requestLogging, sendData, authDenied};
+enum PackageType {requestForAuth, requestData, requestLogging, sendData, sendAuth, authDenied};
 
 
 

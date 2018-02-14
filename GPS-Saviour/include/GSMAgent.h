@@ -42,6 +42,7 @@ class GSMAgent {
         void sendData(const vector<GeoData>& dataToSend_) const;
         void receiveData();
         GSMPackage receiveRequest();
+        void sendAuth() const;
 
         /* --- getters / setters --- */
         void setGSMConnectionEstablished(bool val_);

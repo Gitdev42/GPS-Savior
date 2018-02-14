@@ -1,8 +1,8 @@
 /**
- * TODO1.cpp
- * Purpose: implements class TODO1
+ * NeedyClient.cpp
+ * Purpose: implements class NeedyClient
  *
- * @author TODO2
+ * @author Wall.Of.Death
  * @version 1.0
  */
 

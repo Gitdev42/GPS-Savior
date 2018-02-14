@@ -86,6 +86,17 @@ void GSMAgent::sendData(const vector<GeoData> &dataToSend_) const {
 }
 
 /**
+ * @brief GSMAgent::sendAuth
+ */
+void GSMAgent::sendAuth() const {
+    GSMPackage gsmPackageToSend;
+    gsmPackageToSend.setPackageType(PackageType::sendAuth);
+    gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
+    gsmPackageToSend.setSenderTelephoneNumber(getTelephoneNumber());
+    sendGSMPackage(gsmPackageToSend);
+}
+
+/**
  * @brief receiveData
  *
  * re
