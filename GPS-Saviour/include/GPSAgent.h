@@ -28,7 +28,6 @@ using namespace std;
  * the raw gps data and converting it into a GeoData-object.
  * Once the data is converted into a GeoData-object it is stored within a
  * vector of GeoData-objects.
- * TEST
  */
 class GPSAgent {
     public:
