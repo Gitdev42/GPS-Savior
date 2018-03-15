@@ -16,7 +16,5 @@ using namespace  std;
 
 
 TEST_CASE("Test SaviourClient") {
-    SaviourClient sc;
-    sc.init();
-    //sc.execute();
+
 }

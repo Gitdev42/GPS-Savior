@@ -23,10 +23,6 @@ class NeedyClient {
         void init();
         void execute();
 
-
-
-
-
         /* --- getters / setters --- */
 
     private:
@@ -35,13 +31,6 @@ class NeedyClient {
 
 
         /* --- Needy Features --- */
-
-        bool buttonActiv;
-        bool receiveActiv;
-        bool secureAreaActiv;
-        bool buttonPressed;
-        bool requestReceived;
-        bool outsideSecureArea;
 
 
 };

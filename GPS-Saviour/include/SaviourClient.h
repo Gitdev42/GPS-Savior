@@ -24,17 +24,6 @@ class SaviourClient {
         /* --- main execution function --- */
         void execute();
 
-        /* --- send requests --- */
-        void sendRequestForData();
-        void sendRequestForLogging();
-
-        /* --- getters / setters --- */
-        void setPartnerTelephoneNumbers(vector<int> val_);
-        vector<int> getPartnerTelephoneNumbers() const;
-
-        void setTelephoneNumber(int val_);
-        int getTelephoneNumber() const;
-
     private:
         GSMAgent gsmAgent;
 
