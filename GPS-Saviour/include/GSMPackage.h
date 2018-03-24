@@ -31,11 +31,11 @@ class GSMPackage {
         void setGeoDataToSend(vector<GeoData> geoDataToSend_);
         vector<GeoData> getGeoDataToSend();
 
-        vector<int> getReceipientTelephoneNumbers() const;
         void setReceipientTelephoneNumbers(const vector<int> &val_);
+        vector<int> getReceipientTelephoneNumbers() const;
 
-        int getSenderTelephoneNumber() const;
         void setSenderTelephoneNumber(int val_);
+        int getSenderTelephoneNumber() const;
 
 private:
         PackageType packageType;

@@ -21,13 +21,21 @@ class SaviourClient {
         SaviourClient() {};
         void init();
 
-        /* --- main execution function --- */
+        /* --- initialisation / main execution function --- */
         void execute();
+
 
     private:
         GSMAgent gsmAgent;
+        GSMPackage receivedGSMPackage;
 
-
+        /* --- main execution function --- */
+        bool checkRequestForStatusChange();
+        bool checkReceivedPackage();
+        PackageType checkPackageType(GSMPackage receivedGSMPackage_);
+        void saveData(GSMPackage);
+        void SendAnswerForAuthRequest(GSMPackage);
+        void error();
 
 };
 
