@@ -16,9 +16,9 @@ void SaviourClient::init() {
 
 /* --- main execution function --- */
 void SaviourClient::execute() {
-    do (
+    do {
 
-    ) while (! checkReceivedPackage());
+    } while (! checkReceivedPackage());
 
 }
 
