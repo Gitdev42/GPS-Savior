@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SaviourClient.h
  * Purpose: defines class SaviourClient
  *
@@ -30,12 +30,20 @@ class SaviourClient {
         GSMPackage receivedGSMPackage;
 
         /* --- main execution function --- */
-        bool checkRequestForStatusChange();
+        bool checkButtonsAndSendRequests();
+        bool checkSendSingleDataPressed();
+        bool checkSendSingleDataArrayPressed();
+        bool checkSendStartContiniouslyDataPressed();
+        bool checkSendStopContiniouslyDataPressed();
+        bool checkStartLogging();
+        bool checkStopLogging();
         bool checkReceivedPackage();
         PackageType checkPackageType(GSMPackage receivedGSMPackage_);
-        void saveData(GSMPackage);
-        void SendAnswerForAuthRequest(GSMPackage);
+        void saveData(GSMPackage receivedGSMPackage_);
+        void sendAnswerForAuthRequest(GSMPackage receivedGSMPackage_);
+        void sendRequest(PackageType requestType_);
         void error();
+
 
 };
 

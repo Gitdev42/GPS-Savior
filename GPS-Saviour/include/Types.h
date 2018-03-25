@@ -14,8 +14,7 @@
 /* --- constants --- */
 
 /* --- enumerations --- */
-enum PackageType {requestForAuth, requestData, requestLogging, sendData, sendAuth, authDenied};
-
+enum PackageType {requestForAuth, requestSingleData, requestSingeDataArray, requestStartContiniouslyData, requestStopContiniouslyData, requestStartLogging, requestStopLogging, sendData, sendAuth, authDenied};
 
 
 #endif // TYPES_H

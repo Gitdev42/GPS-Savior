@@ -37,8 +37,12 @@ class GSMAgent {
 
         /* --- request and receive data --- */
         void sendRequestForAuth() const;
-        void sendRequestForLogging() const;
-        void sendRequestForData() const;
+        void sendRequestForStartLogging() const;
+        void sendRequestForStopLogging() const;
+        void sendRequestForSingleData() const;
+        void sendRequestForSingleDataArray(const vector<GeoData> &timestempsToSend_) const;
+        void sendRequestForStartContiniouslyData() const;
+        void sendRequestForStopContiniouslyData() const;
         void sendData(const vector<GeoData>& dataToSend_) const;
         void receiveData();
         GSMPackage receiveRequest();

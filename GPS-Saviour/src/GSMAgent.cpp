@@ -47,27 +47,83 @@ void GSMAgent::sendRequestForAuth() const {
 
 }
 
+
 /**
- * @brief GSMAgent::sendRequestForLogging
+ * @brief GSMAgent::sendRequestForStartLogging
  *
  * sends an logging request to all stored NeedyClients (number selection will be added)
  */
-void GSMAgent::sendRequestForLogging() const {
+void GSMAgent::sendRequestForStartLogging() const {
     GSMPackage gsmPackageToSend;
-    gsmPackageToSend.setPackageType(PackageType::requestLogging);
+    gsmPackageToSend.setPackageType(PackageType::requestStartLogging);
     gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
     gsmPackageToSend.setSenderTelephoneNumber(getTelephoneNumber());
     sendGSMPackage(gsmPackageToSend);
 }
 
 /**
- * @brief GSMAgent::sendRequesForData
+ * @brief GSMAgent::sendRequestForStopLogging
  *
- * sends an request for data to all stored NeedyClienets (number selection will be added)
+ * sends an request to all stored NeedyClients to Stop logging
  */
-void GSMAgent::sendRequestForData() const {
+void GSMAgent::sendRequestForStopLogging() const {
     GSMPackage gsmPackageToSend;
-    gsmPackageToSend.setPackageType(PackageType::requestData);
+    gsmPackageToSend.setPackageType(PackageType::requestStopLogging);
+    gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
+    gsmPackageToSend.setSenderTelephoneNumber(getTelephoneNumber());
+    sendGSMPackage(gsmPackageToSend);
+}
+
+/**
+ * @brief GSMAgent::sendRequesForSingleData
+ *
+ * sends an request for single data to all stored NeedyClienets (number selection will be added)
+ */
+void GSMAgent::sendRequestForSingleData() const {
+    GSMPackage gsmPackageToSend;
+    gsmPackageToSend.setPackageType(PackageType::requestSingleData);
+    gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
+    gsmPackageToSend.setSenderTelephoneNumber(getTelephoneNumber());
+    sendGSMPackage(gsmPackageToSend);
+}
+
+/**
+ * @brief GSMAgent::sendRequestForSingleDataArray
+ *
+ * sends an request for an single data vector, which contains all data points between the timestemps set in
+ * the given timestempsToSend, to all stored NeedyClienets (number selection will be added)
+ */
+void GSMAgent::sendRequestForSingleDataArray(const vector<GeoData> &timestempsToSend_) const {
+    GSMPackage gsmPackageToSend;
+    gsmPackageToSend.setPackageType(PackageType::requestSingeDataArray);
+    gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
+    gsmPackageToSend.setSenderTelephoneNumber(getTelephoneNumber());
+    gsmPackageToSend.setGeoDataToSend(timestempsToSend_);
+    sendGSMPackage(gsmPackageToSend);
+
+}
+
+/**
+ * @brief GSMAgent::sendRequestForContiniouslyData
+ *
+ * sends an request to start logging and continiously sending data
+ */
+void GSMAgent::sendRequestForStartContiniouslyData() const {
+    GSMPackage gsmPackageToSend;
+    gsmPackageToSend.setPackageType(PackageType::requestStartContiniouslyData);
+    gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
+    gsmPackageToSend.setSenderTelephoneNumber(getTelephoneNumber());
+    sendGSMPackage(gsmPackageToSend);
+}
+
+/**
+ * @brief GSMAgent::sendRequestForStopContiniouslyData
+ *
+ * sends an request to stop logging and continiously sending data
+ */
+void GSMAgent::sendRequestForStopContiniouslyData() const {
+    GSMPackage gsmPackageToSend;
+    gsmPackageToSend.setPackageType(PackageType::requestStopContiniouslyData);
     gsmPackageToSend.setReceipientTelephoneNumbers(getPartnerTelephoneNumbers());
     gsmPackageToSend.setSenderTelephoneNumber(getTelephoneNumber());
     sendGSMPackage(gsmPackageToSend);
@@ -75,6 +131,8 @@ void GSMAgent::sendRequestForData() const {
 
 /**
  * @brief GSMAgent::sendData
+ *
+ * sends Data
  */
 void GSMAgent::sendData(const vector<GeoData> &dataToSend_) const {
     GSMPackage gsmPackageToSend;
@@ -87,6 +145,8 @@ void GSMAgent::sendData(const vector<GeoData> &dataToSend_) const {
 
 /**
  * @brief GSMAgent::sendAuth
+ *
+ * sends Authentification
  */
 void GSMAgent::sendAuth() const {
     GSMPackage gsmPackageToSend;
@@ -99,7 +159,7 @@ void GSMAgent::sendAuth() const {
 /**
  * @brief receiveData
  *
- * re
+ * receive Data
  */
 void GSMAgent::receiveData() {
     GSMPackage gsmPackageToReceive;
@@ -119,17 +179,25 @@ GSMPackage GSMAgent::receiveRequest() {
     return receiveGSMPackage();
 }
 
-void GSMAgent::setGSMConnectionEstablished(bool val_)
-{
+
+/* --- getters / setters --- */
+
+/**
+ * @brief GSMAgent::setGSMConnectionEstablished
+ * @param val_
+ */
+void GSMAgent::setGSMConnectionEstablished(bool val_) {
     gsmConnetionEstablished = val_;
 }
 
-bool GSMAgent::getGSMConnectionEstablished() const
-{
+/**
+ * @brief GSMAgent::getGSMConnectionEstablished
+ * @return
+ */
+bool GSMAgent::getGSMConnectionEstablished() const {
     return gsmConnetionEstablished;
 }
 
-/* --- getters / setters --- */
 /**
  * @brief GSMAgent::setPartnerTelephoneNumbers
  * @param val_
