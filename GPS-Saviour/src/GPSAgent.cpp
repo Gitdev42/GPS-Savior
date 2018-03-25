@@ -42,7 +42,7 @@ bool GPSAgent::init() {
 }
 
 /**
- * GPSAgent::receiveGeoData
+ * GPSAgent::receiveAndStoreGeoData
  * @brief receives and stores geo-data from gps-sensor
  * @return true if GPSAgent was able to receive and store data
  *
@@ -50,7 +50,7 @@ bool GPSAgent::init() {
  * into a GeoData-object. After conversion the GeoData-object is added to
  * the vector storedGeoData.
  */
-bool GPSAgent::receiveGeoData() {
+bool GPSAgent::receiveAndStoreGeoData() {
     // if everything is initialized / connection is established
     if (init()){
         GeoData receivedData;
@@ -94,7 +94,7 @@ bool GPSAgent::getGPSConnectionEstablished() const {
  * @brief returns the class member storedGeoData
  * @return returns the class member storedGeoData
  */
-vector<GeoData> GPSAgent::getStoredGeoData() const {
+const vector<GeoData>& GPSAgent::getStoredGeoData() const {
     return storedGeoData;
 }
 

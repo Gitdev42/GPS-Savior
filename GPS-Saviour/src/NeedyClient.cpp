@@ -143,11 +143,20 @@ void NeedyClient::storeGPSData() {
 }
 
 void NeedyClient::storeData() {
-
+    gpsAgent.receiveAndStoreGeoData();
 }
 
 
 void NeedyClient::sendData() {
+    vector<GeoData> storedGeoData = gpsAgent.getStoredGeoData();
+    vector<GeoData> geoDataToSend;
 
+    // send last stored value
+    if (getSendingStatus() == SendingStatus::sendSingleData) {
+        geoDataToSend.push_back(storedGeoData[storedGeoData.size() - 1]);
+        gsmAgent.sendData(geoDataToSend);
+    } else if (getSendingStatus() == SendingStatus::sendSingleDataArray) {
+
+    }
 }
 

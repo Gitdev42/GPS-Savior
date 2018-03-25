@@ -36,13 +36,13 @@ class GPSAgent {
 
         /* --- initialize / receive --- */
         bool init();
-        bool receiveGeoData();
+        bool receiveAndStoreGeoData();
 
         /* --- getters / setters --- */
         void setGPSConnectionEstablished(bool val_);
         bool getGPSConnectionEstablished() const;
 
-        vector<GeoData> getStoredGeoData() const;
+        const vector<GeoData> &getStoredGeoData() const;
 
     private:
         /* --- receive / convert / save --- */

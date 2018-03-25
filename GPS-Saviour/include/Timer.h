@@ -21,6 +21,7 @@ class Timer {
 
         void init(int countDownTimeInMilliSeconds_);
         void start();
+        bool checkTimerIsStarted();
         //void pause();
         void stopAndReset();
         bool checkTimerIsUp();

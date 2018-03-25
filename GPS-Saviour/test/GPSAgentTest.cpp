@@ -28,7 +28,7 @@ TEST_CASE("Test GPSAgent") {
 
     // receive for the first time
     gpsA.init();
-    gpsA.receiveGeoData();
+    gpsA.receiveAndStoreGeoData();
     vector<GeoData> storedGeoD = gpsA.getStoredGeoData();
     REQUIRE(storedGeoD.size() == 1);
     REQUIRE(storedGeoD[0].getLongitude() == buffer.getGeoData().getLongitude());
@@ -37,7 +37,7 @@ TEST_CASE("Test GPSAgent") {
     REQUIRE(storedGeoD[0].getCTime() == buffer.getGeoData().getCTime());
 
     // receive same data again
-    gpsA.receiveGeoData();
+    gpsA.receiveAndStoreGeoData();
     storedGeoD = gpsA.getStoredGeoData();
     REQUIRE(storedGeoD.size() == 2);
     REQUIRE(storedGeoD[1].getLongitude() == buffer.getGeoData().getLongitude());
@@ -48,7 +48,7 @@ TEST_CASE("Test GPSAgent") {
 
     // generate new data and receive this again
     buffer.createDummyGeoData();
-    gpsA.receiveGeoData();
+    gpsA.receiveAndStoreGeoData();
     storedGeoD = gpsA.getStoredGeoData();
     REQUIRE(storedGeoD.size() == 3);
     REQUIRE(storedGeoD[2].getLongitude() == buffer.getGeoData().getLongitude());
