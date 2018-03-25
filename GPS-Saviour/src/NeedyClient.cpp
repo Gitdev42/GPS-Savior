@@ -133,19 +133,18 @@ void NeedyClient::storeGPSData() {
     if (getStoringStatus() == StoringStatus::storeSingleData) {
         storeData();
     } else if (getStoringStatus() == StoringStatus::storeContinuously) {
-        //TODO
+        if (!storingTimer.checkTimerIsStarted()) {
+            storingTimer.start();
+        }
+        if (storingTimer.checkTimerIsUp()) {
+            storeData();
+        }
     }
 }
 
 void NeedyClient::storeData() {
-    // todo
-}
 
-bool NeedyClient::checkTimerIsInitialized() {
-    // todo
-    return true;
 }
-
 
 
 void NeedyClient::sendData() {

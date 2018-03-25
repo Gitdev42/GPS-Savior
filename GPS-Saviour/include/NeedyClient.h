@@ -13,6 +13,7 @@
 #include "Types.h"
 #include "GPSAgent.h"
 #include "GSMAgent.h"
+#include "Timer.h"
 
 using namespace std;
 
@@ -45,6 +46,8 @@ class NeedyClient {
         StoringStatus storingStatus;
         SendingStatus sendingStatus;
 
+        Timer storingTimer;
+
 
         /* --- Needy Features --- */
 
@@ -62,7 +65,6 @@ class NeedyClient {
         /* --- sub execution functions --- */
         void storeGPSData();
         void storeData();
-        bool checkTimerIsInitialized();
         void sendData();
 
 
