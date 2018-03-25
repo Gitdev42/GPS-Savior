@@ -38,15 +38,24 @@ class NeedyClient {
         SendingStatus getSendingStatus() const;
         void setSendingStatus(const SendingStatus &val_);
 
-    private:
+        int getRequestedDataArrayStartTime() const;
+        void setRequestedDataArrayStartTime(int val_);
+
+        int getRequestedDataArrayEndTime() const;
+        void setRequestedDataArrayEndTime(int val_);
+
+private:
         GPSAgent gpsAgent;
         GSMAgent gsmAgent;
+        Timer storingTimer;
 
         bool authIsRequired;
         StoringStatus storingStatus;
         SendingStatus sendingStatus;
 
-        Timer storingTimer;
+        int requestedDataArrayStartTime;
+        int requestedDataArrayEndTime;
+
 
 
         /* --- Needy Features --- */

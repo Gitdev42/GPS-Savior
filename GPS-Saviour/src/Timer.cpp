@@ -13,3 +13,28 @@ using namespace std;
 /* --- constructors / destructors --- */
 
 /* --- miscellaneous --- */
+
+void Timer::init(int countDownTimeInMilliSeconds_)
+{
+
+}
+
+void Timer::start()
+{
+
+}
+
+bool Timer::checkTimerIsStarted()
+{
+
+}
+
+void Timer::stopAndReset()
+{
+
+}
+
+bool Timer::checkTimerIsUp()
+{
+
+}

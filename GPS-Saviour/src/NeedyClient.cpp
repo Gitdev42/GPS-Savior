@@ -38,6 +38,26 @@ void NeedyClient::setSendingStatus(const SendingStatus &val_)
     sendingStatus = val_;
 }
 
+int NeedyClient::getRequestedDataArrayStartTime() const
+{
+    return requestedDataArrayStartTime;
+}
+
+void NeedyClient::setRequestedDataArrayStartTime(int val_)
+{
+    requestedDataArrayStartTime = val_;
+}
+
+int NeedyClient::getRequestedDataArrayEndTime() const
+{
+    return requestedDataArrayEndTime;
+}
+
+void NeedyClient::setRequestedDataArrayEndTime(int val_)
+{
+    requestedDataArrayEndTime = val_;
+}
+
 
 /* --- Needy Features --- */
 
@@ -151,12 +171,23 @@ void NeedyClient::sendData() {
     vector<GeoData> storedGeoData = gpsAgent.getStoredGeoData();
     vector<GeoData> geoDataToSend;
 
+    // if SendingStatus == sendSingleData
     // send last stored value
     if (getSendingStatus() == SendingStatus::sendSingleData) {
         geoDataToSend.push_back(storedGeoData[storedGeoData.size() - 1]);
         gsmAgent.sendData(geoDataToSend);
     } else if (getSendingStatus() == SendingStatus::sendSingleDataArray) {
-
+        // if SendingStatus == sendSingleDataArray
+        // send all values between startTime and endTime
+        for(int i = 0; i < storedGeoData.size(); i++) {
+            if ( (storedGeoData[i].getCTime() >= getRequestedDataArrayStartTime()) &&
+                 (storedGeoData[i].getCTime() <= getRequestedDataArrayEndTime()) ) {
+                geoDataToSend.push_back(storedGeoData[i]);
+            }
+        }
+        gsmAgent.sendData(geoDataToSend);
+    } else if (getSendingStatus() == SendingStatus::sendContinuously) {
+        // TODO
     }
 }
 
