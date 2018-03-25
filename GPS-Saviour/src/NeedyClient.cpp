@@ -8,6 +8,41 @@
 
 #include "../include/NeedyClient.h"
 
+/* --- getters / setters --- */
+
+bool NeedyClient::getAuthIsRequired() const {
+    return authIsRequired;
+}
+
+void NeedyClient::setAuthIsRequired(bool value) {
+    authIsRequired = value;
+}
+
+StoringStatus NeedyClient::getStoringStatus() const
+{
+    return storingStatus;
+}
+
+void NeedyClient::setStoringStatus(const StoringStatus &val_)
+{
+    storingStatus = val_;
+}
+
+SendingStatus NeedyClient::getSendingStatus() const
+{
+    return sendingStatus;
+}
+
+void NeedyClient::setSendingStatus(const SendingStatus &val_)
+{
+    sendingStatus = val_;
+}
+
+
+/* --- Needy Features --- */
+
+/* --- main execution functions --- */
+
 void NeedyClient::init() {
 
 }
@@ -43,30 +78,24 @@ void NeedyClient::execute() {
     }
 }
 
-
-/* --- getters / setters --- */
-
-bool NeedyClient::getAuthIsRequired() const {
-    return authIsRequired;
-}
-
-void NeedyClient::setAuthIsRequired(bool value) {
-    authIsRequired = value;
-}
-
-void NeedyClient::checkReveivedInitialization()
-{
+/**
+ * @brief NeedyClient::checkReveivedInitialization
+ * feature not enabled yet
+ */
+void NeedyClient::checkReveivedInitialization() {
 
 }
 
-bool NeedyClient::checkReceivedRequesForStatusChange()
-{
+bool NeedyClient::checkReceivedRequesForStatusChange() {
 
 }
 
-void NeedyClient::processTasks()
-{
-
+/**
+ * @brief NeedyClient::processTasks
+ */
+void NeedyClient::processTasks() {
+    storeGPSData();
+    sendData();
 }
 
 void NeedyClient::sendRequestForAuth()
@@ -98,3 +127,28 @@ void NeedyClient::saveRequestedStatus()
 {
 
 }
+
+/* --- sub execution functions --- */
+void NeedyClient::storeGPSData() {
+    if (getStoringStatus() == StoringStatus::storeSingleData) {
+        storeData();
+    } else if (getStoringStatus() == StoringStatus::storeContinuously) {
+        //TODO
+    }
+}
+
+void NeedyClient::storeData() {
+    // todo
+}
+
+bool NeedyClient::checkTimerIsInitialized() {
+    // todo
+    return true;
+}
+
+
+
+void NeedyClient::sendData() {
+
+}
+

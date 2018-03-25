@@ -24,7 +24,8 @@ HEADERS += \
     GPS-Saviour/include/NeedyClient.h \
     GPS-Saviour/include/SaviourClient.h \
     GPS-Saviour/include/Types.h \
-    GPS-Saviour/test/TestBuffer.h
+    GPS-Saviour/test/TestBuffer.h \
+    GPS-Saviour/include/Timer.h
 
 SOURCES += \
     GPS-Saviour/src/GeoData.cpp \
@@ -38,6 +39,7 @@ SOURCES += \
     GPS-Saviour/test/NeedyClientTest.cpp \
     GPS-Saviour/test/SaviourClientTest.cpp \
     GPS-Saviour/test/TestBuffer.cpp \
-    GPS-Saviour/main.cpp
+    GPS-Saviour/main.cpp \
+    GPS-Saviour/src/Timer.cpp
 
 

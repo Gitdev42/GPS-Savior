@@ -31,11 +31,19 @@ class NeedyClient {
         bool getAuthIsRequired() const;
         void setAuthIsRequired(bool val_);
 
-private:
+        StoringStatus getStoringStatus() const;
+        void setStoringStatus(const StoringStatus &val_);
+
+        SendingStatus getSendingStatus() const;
+        void setSendingStatus(const SendingStatus &val_);
+
+    private:
         GPSAgent gpsAgent;
         GSMAgent gsmAgent;
 
         bool authIsRequired;
+        StoringStatus storingStatus;
+        SendingStatus sendingStatus;
 
 
         /* --- Needy Features --- */
@@ -50,6 +58,12 @@ private:
         bool checkAuthCompleted();
         void sendErrorPackage();
         void saveRequestedStatus();
+
+        /* --- sub execution functions --- */
+        void storeGPSData();
+        void storeData();
+        bool checkTimerIsInitialized();
+        void sendData();
 
 
 
