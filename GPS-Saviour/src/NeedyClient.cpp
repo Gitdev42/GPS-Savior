@@ -8,61 +8,9 @@
 
 #include "../include/NeedyClient.h"
 
-/* --- getters / setters --- */
+/* --- constructors / destructors --- */
 
-bool NeedyClient::getAuthIsRequired() const {
-    return authIsRequired;
-}
-
-void NeedyClient::setAuthIsRequired(bool value) {
-    authIsRequired = value;
-}
-
-StoringStatus NeedyClient::getStoringStatus() const
-{
-    return storingStatus;
-}
-
-void NeedyClient::setStoringStatus(const StoringStatus &val_)
-{
-    storingStatus = val_;
-}
-
-SendingStatus NeedyClient::getSendingStatus() const
-{
-    return sendingStatus;
-}
-
-void NeedyClient::setSendingStatus(const SendingStatus &val_)
-{
-    sendingStatus = val_;
-}
-
-int NeedyClient::getRequestedDataArrayStartTime() const
-{
-    return requestedDataArrayStartTime;
-}
-
-void NeedyClient::setRequestedDataArrayStartTime(int val_)
-{
-    requestedDataArrayStartTime = val_;
-}
-
-int NeedyClient::getRequestedDataArrayEndTime() const
-{
-    return requestedDataArrayEndTime;
-}
-
-void NeedyClient::setRequestedDataArrayEndTime(int val_)
-{
-    requestedDataArrayEndTime = val_;
-}
-
-
-/* --- Needy Features --- */
-
-/* --- main execution functions --- */
-
+/* --- initialization / main execution function --- */
 void NeedyClient::init() {
 
 }
@@ -98,6 +46,49 @@ void NeedyClient::execute() {
     }
 }
 
+/* --- getters / setters --- */
+bool NeedyClient::getAuthIsRequired() const {
+    return authIsRequired;
+}
+
+void NeedyClient::setAuthIsRequired(bool value) {
+    authIsRequired = value;
+}
+
+StoringStatus NeedyClient::getStoringStatus() const {
+    return storingStatus;
+}
+
+void NeedyClient::setStoringStatus(const StoringStatus &val_) {
+    storingStatus = val_;
+}
+
+SendingStatus NeedyClient::getSendingStatus() const {
+    return sendingStatus;
+}
+
+void NeedyClient::setSendingStatus(const SendingStatus &val_) {
+    sendingStatus = val_;
+}
+
+int NeedyClient::getRequestedDataArrayStartTime() const {
+    return requestedDataArrayStartTime;
+}
+
+void NeedyClient::setRequestedDataArrayStartTime(int val_) {
+    requestedDataArrayStartTime = val_;
+}
+
+int NeedyClient::getRequestedDataArrayEndTime() const {
+    return requestedDataArrayEndTime;
+}
+
+void NeedyClient::setRequestedDataArrayEndTime(int val_) {
+    requestedDataArrayEndTime = val_;
+}
+
+/* --- main execution functions --- */
+
 /**
  * @brief NeedyClient::checkReveivedInitialization
  * feature not enabled yet
@@ -118,33 +109,27 @@ void NeedyClient::processTasks() {
     sendData();
 }
 
-void NeedyClient::sendRequestForAuth()
-{
+void NeedyClient::sendRequestForAuth() {
 
 }
 
-bool NeedyClient::checkReceivedAuthPackage()
-{
+bool NeedyClient::checkReceivedAuthPackage() {
 
 }
 
-bool NeedyClient::checkTimeoutIsUp()
-{
+bool NeedyClient::checkTimeoutIsUp() {
 
 }
 
-bool NeedyClient::checkAuthCompleted()
-{
+bool NeedyClient::checkAuthCompleted() {
 
 }
 
-void NeedyClient::sendErrorPackage()
-{
+void NeedyClient::sendErrorPackage() {
 
 }
 
-void NeedyClient::saveRequestedStatus()
-{
+void NeedyClient::saveRequestedStatus() {
 
 }
 

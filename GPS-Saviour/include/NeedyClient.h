@@ -17,6 +17,9 @@
 
 using namespace std;
 
+/**
+ * @brief The NeedyClient class
+ */
 class NeedyClient {
     public:
         /* --- constructors / destructors --- */
@@ -27,8 +30,6 @@ class NeedyClient {
         void execute();
 
         /* --- getters / setters --- */
-
-
         bool getAuthIsRequired() const;
         void setAuthIsRequired(bool val_);
 
@@ -44,7 +45,8 @@ class NeedyClient {
         int getRequestedDataArrayEndTime() const;
         void setRequestedDataArrayEndTime(int val_);
 
-private:
+    private:
+        /* --- class member variables --- */
         GPSAgent gpsAgent;
         GSMAgent gsmAgent;
         Timer storingTimer;
@@ -55,10 +57,6 @@ private:
 
         int requestedDataArrayStartTime;
         int requestedDataArrayEndTime;
-
-
-
-        /* --- Needy Features --- */
 
         /* --- main execution functions --- */
         void checkReveivedInitialization();
@@ -75,8 +73,6 @@ private:
         void storeGPSData();
         void storeData();
         void sendData();
-
-
 
 };
 
