@@ -45,11 +45,23 @@ class NeedyClient {
         int getRequestedDataArrayEndTime() const;
         void setRequestedDataArrayEndTime(int val_);
 
-    private:
+        int getSendingTimerInterval() const;
+        void setSendingTimerInterval(int val_);
+
+        int getStoringTimerInterval() const;
+        void setStoringTimerInterval(int val_);
+
+        int getContinouslySendingFinishedUntilTime() const;
+        void setContinouslySendingFinishedUntilTime(int val_);
+
+private:
         /* --- class member variables --- */
         GPSAgent gpsAgent;
         GSMAgent gsmAgent;
         Timer storingTimer;
+        Timer sendingTimer;
+        int sendingTimerInterval;
+        int storingTimerInterval;
 
         bool authIsRequired;
         StoringStatus storingStatus;
@@ -57,6 +69,10 @@ class NeedyClient {
 
         int requestedDataArrayStartTime;
         int requestedDataArrayEndTime;
+
+        // all values with a time before this time are already sent during sendingStatus=sendContinuously
+        // all values with a time after this time are were not sent yet by sendingStatus=sendContinuously
+        int continouslySendingFinishedUntilTime;
 
         /* --- main execution functions --- */
         void checkReveivedInitialization();
@@ -66,7 +82,7 @@ class NeedyClient {
         bool checkReceivedAuthPackage();
         bool checkTimeoutIsUp();
         bool checkAuthCompleted();
-        void sendErrorPackage();
+        void sendErrorPackage(const string& errorText_);
         void saveRequestedStatus();
 
         /* --- sub execution functions --- */

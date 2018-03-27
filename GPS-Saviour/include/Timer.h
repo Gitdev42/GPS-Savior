@@ -25,6 +25,7 @@ class Timer {
         //void pause();
         void stopAndReset();
         bool checkTimerIsUp();
+        int  getCurrentTime();
 
     private:
 

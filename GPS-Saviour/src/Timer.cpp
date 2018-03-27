@@ -38,3 +38,8 @@ bool Timer::checkTimerIsUp()
 {
 
 }
+
+int Timer::getCurrentTime()
+{
+
+}
