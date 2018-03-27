@@ -46,7 +46,10 @@ void NeedyClient::execute() {
                 sendRequestForAuth();
 
                 // wait until either auth package is received or timeout is up
-                while ( (! checkTimeoutIsUp() ) && (!checkReceivedAuthPackage())) {
+                Timer authTimeOutTimer;
+                authTimeOutTimer.init(WAIT_FOR_AUTH_PACKAGE_TIMEOUT);
+                authTimeOutTimer.start();
+                while ( (! authTimeOutTimer.checkTimerIsUp()) && (!checkReceivedAuthPackage())) {
                     // wait
                 }
 

@@ -13,6 +13,8 @@
 
 /* --- constants --- */
 
+int WAIT_FOR_AUTH_PACKAGE_TIMEOUT = 5000; // in milli seconds;
+
 /* --- enumerations --- */
 enum PackageType {requestForAuth, requestSingleData, requestSingeDataArray, requestStartContiniouslyData, requestStopContiniouslyData, requestStartLogging, requestStopLogging, sendData, sendAuth, authDenied};
 
