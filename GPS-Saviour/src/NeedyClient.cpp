@@ -26,10 +26,10 @@ void NeedyClient::init() {
  * The function execute is the main execution function of the class NeedyClient.
  * Run this function in an endless loop after calling NeedyClient.init().
  *  -- check if initialization package was received
- *  -- check if any status change (e.g. by pressing a button press or receiving a GSM-package) is requested
+ *  -- check if any status change (e.g. by pressing a button or receiving a GSM-package) was requested
  *     -- if necessary check authentication of request
  *        -- save requested status
- *        -- run storing data - and saving data - tasks
+ *        -- run storing data - and sending data - tasks
  */
 void NeedyClient::execute() {
     while(true) { // TODO
@@ -165,7 +165,7 @@ void NeedyClient::checkReveivedInitialization() {
 }
 
 /**
- * NeedyClient::checkReceivedRequesForStatusChange
+ * NeedyClient::checkReceivedRequestForStatusChange
  * @brief
  * @return
  */
@@ -175,7 +175,7 @@ bool NeedyClient::checkReceivedRequestForStatusChange() {
 
 /**
  * NeedyClient::processTasks
- * @brief
+ * @brief process all enabled tasks (e.g. store GPS data and send data by GSM)
  */
 void NeedyClient::processTasks() {
     storeGPSData();
@@ -184,7 +184,8 @@ void NeedyClient::processTasks() {
 
 /**
  * NeedyClient::sendRequestForAuth
- * @brief
+ * @brief send a request for authentication
+ * TODO
  */
 void NeedyClient::sendRequestForAuth() {
 
@@ -192,19 +193,11 @@ void NeedyClient::sendRequestForAuth() {
 
 /**
  * NeedyClient::checkReceivedAuthPackage
- * @brief
+ * @brief checks if GSMAgent has received an authentication package and checks if auth is okay
+ * TODO
  * @return
  */
 bool NeedyClient::checkReceivedAuthPackage() {
-
-}
-
-/**
- * NeedyClient::checkTimeoutIsUp
- * @brief
- * @return
- */
-bool NeedyClient::checkTimeoutIsUp() {
 
 }
 
