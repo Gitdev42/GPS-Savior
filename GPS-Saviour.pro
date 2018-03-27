@@ -40,6 +40,7 @@ SOURCES += \
     GPS-Saviour/test/SaviourClientTest.cpp \
     GPS-Saviour/test/TestBuffer.cpp \
     GPS-Saviour/main.cpp \
-    GPS-Saviour/src/Timer.cpp
+    GPS-Saviour/src/Timer.cpp \
+    GPS-Saviour/test/TimerTest.cpp
 
 

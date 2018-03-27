@@ -28,7 +28,7 @@ Timer::Timer(int countDownTime_) {
  */
 void Timer::init(int countDownTime_) {
     setCountDownTime(countDownTime_);
-    setStatus(TimerStatus::stopped);
+    stopAndReset();
 }
 
 /**
@@ -37,17 +37,20 @@ void Timer::init(int countDownTime_) {
  *
  * if status is "stopped", stop time is current time + whole count down interval
  * if status is "paused", stop time is current time + remaining time of countdown interval
+ * start is only possible, if interval > 0
  */
 void Timer::start() {
-    int currentTime = getCurrentTime();
-    if (getStatus() == TimerStatus::stopped) {
-        setStartTime(currentTime);
-        setStopTime(currentTime + getCountDownTime());
-        setStatus(TimerStatus::started);
-    } else if (getStatus() == TimerStatus::paused) {
-        setStartTime(currentTime);
-        setStopTime(currentTime + getRemainingTime());
-        setStatus(TimerStatus::started);
+    if (getCountDownTime() > 0) {
+        int currentTime = getCurrentTime();
+        if (getStatus() == TimerStatus::stopped) {
+            setStartTime(currentTime);
+            setStopTime(currentTime + getCountDownTime());
+            setStatus(TimerStatus::started);
+        } else if (getStatus() == TimerStatus::paused) {
+            setStartTime(currentTime);
+            setStopTime(currentTime + getRemainingTime());
+            setStatus(TimerStatus::started);
+        }
     }
 }
 
