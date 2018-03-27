@@ -60,7 +60,7 @@ class NeedyClient {
 
         /* --- main execution functions --- */
         void checkReveivedInitialization();
-        bool checkReceivedRequesForStatusChange();
+        bool checkReceivedRequestForStatusChange();
         void processTasks();
         void sendRequestForAuth();
         bool checkReceivedAuthPackage();

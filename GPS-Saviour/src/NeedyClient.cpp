@@ -13,7 +13,8 @@
 /* --- initialization / main execution function --- */
 /**
  * NeedyClient::init
- * @brief
+ * @brief initializes the class NeedyClient
+ * TODO
  */
 void NeedyClient::init() {
 
@@ -21,16 +22,23 @@ void NeedyClient::init() {
 
 /**
  * NeedyClient::execute
- * @brief
+ * @brief main execution function of the class NeedyClient
+ * The function execute is the main execution function of the class NeedyClient.
+ * Run this function in an endless loop after calling NeedyClient.init().
+ *  -- check if initialization package was received
+ *  -- check if any status change (e.g. by pressing a button press or receiving a GSM-package) is requested
+ *     -- if necessary check authentication of request
+ *        -- save requested status
+ *        -- run storing data - and saving data - tasks
  */
 void NeedyClient::execute() {
-    while(true) {
+    while(true) { // TODO
 
 
         // check if initialization package is received, if so initialize client
         checkReveivedInitialization();
 
-        if (checkReceivedRequesForStatusChange()) {
+        if (checkReceivedRequestForStatusChange()) {
             // process storing and sending tasks
             processTasks();
         } else {
@@ -149,8 +157,8 @@ void NeedyClient::setRequestedDataArrayEndTime(int val_) {
 
 /**
  * NeedyClient::checkReveivedInitialization
- * @brief
- * feature not enabled yet
+ * @brief checks if GSMAgent has received an initialization package and initializes NeedyClient
+ * TODO : feature not enabled yet
  */
 void NeedyClient::checkReveivedInitialization() {
 
@@ -161,7 +169,7 @@ void NeedyClient::checkReveivedInitialization() {
  * @brief
  * @return
  */
-bool NeedyClient::checkReceivedRequesForStatusChange() {
+bool NeedyClient::checkReceivedRequestForStatusChange() {
 
 }
 
