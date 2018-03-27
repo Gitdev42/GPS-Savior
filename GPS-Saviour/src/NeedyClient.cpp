@@ -11,10 +11,18 @@
 /* --- constructors / destructors --- */
 
 /* --- initialization / main execution function --- */
+/**
+ * NeedyClient::init
+ * @brief
+ */
 void NeedyClient::init() {
 
 }
 
+/**
+ * NeedyClient::execute
+ * @brief
+ */
 void NeedyClient::execute() {
     while(true) {
 
@@ -47,42 +55,92 @@ void NeedyClient::execute() {
 }
 
 /* --- getters / setters --- */
+/**
+ * NeedyClient::getAuthIsRequired
+ * @brief getter function of member variable authIsRequired
+ * @return value of the member variable authIsRequired
+ */
 bool NeedyClient::getAuthIsRequired() const {
     return authIsRequired;
 }
 
-void NeedyClient::setAuthIsRequired(bool value) {
-    authIsRequired = value;
+/**
+ * NeedyClient::setAuthIsRequired
+ * @brief setter function of member variable authIsRequired
+ * @param val_ new value for member variable authIsRequired
+ */
+void NeedyClient::setAuthIsRequired(bool val_) {
+    authIsRequired = val_;
 }
 
+/**
+ * NeedyClient::getStoringStatus
+ * @brief getter function of member variable storingStatus
+ * @return value of the member variable storingStatus
+ */
 StoringStatus NeedyClient::getStoringStatus() const {
     return storingStatus;
 }
 
+/**
+ * NeedyClient::setStoringStatus
+ * @brief setter function of member variable storingStatus
+ * @param val_ new value for member variable storingStatus
+ */
 void NeedyClient::setStoringStatus(const StoringStatus &val_) {
     storingStatus = val_;
 }
 
+/**
+ * NeedyClient::getSendingStatus
+ * @brief getter function of member variable sendingStatus
+ * @return value of the member variable sendingStatus
+ */
 SendingStatus NeedyClient::getSendingStatus() const {
     return sendingStatus;
 }
 
+/**
+ * NeedyClient::setSendingStatus
+ * @brief setter function of member variable sendingStatus
+ * @param val_ new value for member variable sendingStatus
+ */
 void NeedyClient::setSendingStatus(const SendingStatus &val_) {
     sendingStatus = val_;
 }
 
+/**
+ * NeedyClient::getRequestedDataArrayStartTime
+ * @brief getter function of member variable requestedDataArrayStartTime
+ * @return value of the member variable requestedDataArrayStartTime
+ */
 int NeedyClient::getRequestedDataArrayStartTime() const {
     return requestedDataArrayStartTime;
 }
 
+/**
+ * NeedyClient::setRequestedDataArrayStartTime
+ * @brief setter function of member variable requestedDataArrayStartTime
+ * @param val_ new value for member variable requestedDataArrayStartTime
+ */
 void NeedyClient::setRequestedDataArrayStartTime(int val_) {
     requestedDataArrayStartTime = val_;
 }
 
+/**
+ * NeedyClient::getRequestedDataArrayEndTime
+ * @brief getter function of member variable requestedDataArrayEndTime
+ * @return value of the member variable requestedDataArrayEndTime
+ */
 int NeedyClient::getRequestedDataArrayEndTime() const {
     return requestedDataArrayEndTime;
 }
 
+/**
+ * NeedyClient::setRequestedDataArrayEndTime
+ * @brief setter function of member variable requestedDataArrayEndTime
+ * @param val_ new value for member variable requestedDataArrayEndTime
+ */
 void NeedyClient::setRequestedDataArrayEndTime(int val_) {
     requestedDataArrayEndTime = val_;
 }
@@ -90,50 +148,88 @@ void NeedyClient::setRequestedDataArrayEndTime(int val_) {
 /* --- main execution functions --- */
 
 /**
- * @brief NeedyClient::checkReveivedInitialization
+ * NeedyClient::checkReveivedInitialization
+ * @brief
  * feature not enabled yet
  */
 void NeedyClient::checkReveivedInitialization() {
 
 }
 
+/**
+ * NeedyClient::checkReceivedRequesForStatusChange
+ * @brief
+ * @return
+ */
 bool NeedyClient::checkReceivedRequesForStatusChange() {
 
 }
 
 /**
- * @brief NeedyClient::processTasks
+ * NeedyClient::processTasks
+ * @brief
  */
 void NeedyClient::processTasks() {
     storeGPSData();
     sendData();
 }
 
+/**
+ * NeedyClient::sendRequestForAuth
+ * @brief
+ */
 void NeedyClient::sendRequestForAuth() {
 
 }
 
+/**
+ * NeedyClient::checkReceivedAuthPackage
+ * @brief
+ * @return
+ */
 bool NeedyClient::checkReceivedAuthPackage() {
 
 }
 
+/**
+ * NeedyClient::checkTimeoutIsUp
+ * @brief
+ * @return
+ */
 bool NeedyClient::checkTimeoutIsUp() {
 
 }
 
+/**
+ * NeedyClient::checkAuthCompleted
+ * @brief
+ * @return
+ */
 bool NeedyClient::checkAuthCompleted() {
 
 }
 
+/**
+ * NeedyClient::sendErrorPackage
+ * @brief
+ */
 void NeedyClient::sendErrorPackage() {
 
 }
 
+/**
+ * NeedyClient::saveRequestedStatus
+ * @brief
+ */
 void NeedyClient::saveRequestedStatus() {
 
 }
 
 /* --- sub execution functions --- */
+/**
+ * NeedyClient::storeGPSData
+ * @brief
+ */
 void NeedyClient::storeGPSData() {
     if (getStoringStatus() == StoringStatus::storeSingleData) {
         storeData();
@@ -147,11 +243,19 @@ void NeedyClient::storeGPSData() {
     }
 }
 
+/**
+ * NeedyClient::storeData
+ * @brief
+ */
 void NeedyClient::storeData() {
     gpsAgent.receiveAndStoreGeoData();
 }
 
 
+/**
+ * NeedyClient::sendData
+ * @brief
+ */
 void NeedyClient::sendData() {
     vector<GeoData> storedGeoData = gpsAgent.getStoredGeoData();
     vector<GeoData> geoDataToSend;
