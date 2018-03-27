@@ -37,10 +37,10 @@ void Timer::init(int countDownTime_) {
  *
  * if status is "stopped", stop time is current time + whole count down interval
  * if status is "paused", stop time is current time + remaining time of countdown interval
- * start is only possible, if interval > 0
+ * start is only possible, if interval > 10
  */
 void Timer::start() {
-    if (getCountDownTime() > 0) {
+    if (getCountDownTime() >= MINIMUM_COUNTDOWN_TIMER_INTERVAL) {
         int currentTime = getCurrentTime();
         if (getStatus() == TimerStatus::stopped) {
             setStartTime(currentTime);
