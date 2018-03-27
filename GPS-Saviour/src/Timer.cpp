@@ -12,8 +12,9 @@ using namespace std;
 
 /* --- constructors / destructors --- */
 /**
- * @brief Timer::Timer
- * @param countDownTime_
+ * Timer::Timer
+ * @brief constructor of class Timer, calls function init
+ * @param countDownTime_ time interval in milliseconds
  */
 Timer::Timer(int countDownTime_) {
     init(countDownTime_);
@@ -21,8 +22,9 @@ Timer::Timer(int countDownTime_) {
 
 /* --- initialization / main execution functions --- */
 /**
- * @brief Timer::init
- * @param countDownTime_
+ * Timer::init
+ * @brief initializes the interval and status of this class
+ * @param countDownTime_ time interval in milliseconds
  */
 void Timer::init(int countDownTime_) {
     setCountDownTime(countDownTime_);
@@ -30,7 +32,11 @@ void Timer::init(int countDownTime_) {
 }
 
 /**
- * @brief Timer::start
+ * Timer::start
+ * @brief set the status to started and calc stopTime
+ *
+ * if status is "stopped", stop time is current time + whole count down interval
+ * if status is "paused", stop time is current time + remaining time of countdown interval
  */
 void Timer::start() {
     int currentTime = getCurrentTime();
@@ -46,15 +52,20 @@ void Timer::start() {
 }
 
 /**
- * @brief Timer::checkTimerIsStarted
- * @return
+ * Timer::checkTimerIsStarted
+ * @brief check if the current status is "started"
+ * @return returns the information if current status is "started"
  */
 bool Timer::checkTimerIsStarted() {
     return (getStatus() == TimerStatus::started);
 }
 
 /**
- * @brief Timer::pause
+ * Timer::pause
+ * @brief sets the status to "paused" and saves the remaining time
+ *
+ * This function sets the status to "paused" and saves the remaining time.
+ * If the remaining time <= 0 stopAndReset() is executed instead of pause().
  */
 void Timer::pause() {
     if (getStatus() == TimerStatus::started) {
@@ -69,7 +80,8 @@ void Timer::pause() {
 }
 
 /**
- * @brief Timer::stopAndReset
+ * Timer::stopAndReset
+ * @brief resets the startTime, stopTime and remainingTime and set status to "stopped"
  */
 void Timer::stopAndReset() {
     setStartTime(0);
@@ -79,8 +91,9 @@ void Timer::stopAndReset() {
 }
 
 /**
- * @brief Timer::checkTimerIsUp
- * @return
+ * Timer::checkTimerIsUp
+ * @brief checks if count down timer is up
+ * @return returns true if current time >= stopTime
  */
 bool Timer::checkTimerIsUp() {
     if (getStatus() == TimerStatus::started) {
@@ -93,8 +106,9 @@ bool Timer::checkTimerIsUp() {
 
 /* --- miscellaneous --- */
 /**
- * @brief Timer::getCurrentTime
- * @return
+ * Timer::getCurrentTime
+ * @brief returns current unix-time
+ * @return returns current unix-time (milliseconds since 1970)
  */
 int Timer::getCurrentTime() {
 
@@ -102,80 +116,90 @@ int Timer::getCurrentTime() {
 
 /* --- getters / setters --- */
 /**
- * @brief Timer::getStatus
- * @return
+ * Timer::getStatus
+ * @brief getter function of member variable status
+ * @return value of the member variable status
  */
 TimerStatus Timer::getStatus() const {
     return status;
 }
 
 /**
- * @brief Timer::setStatus
- * @param val_
+ * Timer::setStatus
+ * @brief setter function of member variable status
+ * @param val_ new value for member variable status
  */
 void Timer::setStatus(const TimerStatus &val_) {
     status = val_;
 }
 
 /**
- * @brief Timer::getStartTime
- * @return
+ * Timer::getStartTime
+ * @brief getter function of member variable startTime
+ * @return value of the member variable startTime
  */
 int Timer::getStartTime() const {
     return startTime;
 }
 
 /**
- * @brief Timer::setStartTime
- * @param val_
+ * Timer::setStartTime
+ * @brief setter function of member variable startTime
+ * @param val_ new value for member variable startTime
  */
 void Timer::setStartTime(int val_) {
     startTime = val_;
 }
 
 /**
- * @brief Timer::getStopTime
- * @return
+ * Timer::getStopTime
+ * @brief getter function of member variable stopTime
+ * @return value of the member variable stopTime
  */
 int Timer::getStopTime() const {
     return stopTime;
 }
 
 /**
- * @brief Timer::setStopTime
- * @param val_
+ * Timer::setStopTime
+ * @brief setter function of member variable stopTime
+ * @param val_ new value for member variable stopTime
  */
 void Timer::setStopTime(int val_) {
     stopTime = val_;
 }
 
 /**
- * @brief Timer::getCountDownTime
- * @return
+ * Timer::getCountDownTime
+ * @brief getter function of member variable countDownTime
+ * @return value of the member variable countDownTime
  */
 int Timer::getCountDownTime() const {
     return countDownTime;
 }
 
 /**
- * @brief Timer::setCountDownTime
- * @param val_
+ * Timer::setCountDownTime
+ * @brief setter function of member variable countDownTime
+ * @param val_ new value for member variable countDownTime
  */
 void Timer::setCountDownTime(int val_) {
     countDownTime = val_;
 }
 
 /**
- * @brief Timer::getRemainingTime
- * @return
+ * Timer::getRemainingTime
+ * @brief getter function of member variable remainingTime
+ * @return value of the member variable remainingTime
  */
 int Timer::getRemainingTime() const {
     return remainingTime;
 }
 
 /**
- * @brief Timer::setRemainingTime
- * @param val_
+ * Timer::setRemainingTime
+ * @brief setter function of member variable remainingTime
+ * @param val_ new value for member variable remainingTime
  */
 void Timer::setRemainingTime(int val_) {
     remainingTime = val_;
