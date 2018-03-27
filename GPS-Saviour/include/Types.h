@@ -21,6 +21,7 @@ using namespace std;
 const int WAIT_FOR_AUTH_PACKAGE_TIMEOUT = 5000;
 const int DEFAULT_STORING_TIMER_INTERVAL = 1000;
 const int DEFAULT_SENDING_TIMER_INTERVAL = 1000;
+const int DEFAULT_COUNTDOWN_TIMER_INTERVAL = 1000;
 
 // error messages
 const string AUTH_TIMEOUT_ERROR = "Authentication failed due to a timeout!";
@@ -32,6 +33,8 @@ enum PackageType {requestForAuth, requestSingleData, requestSingeDataArray, requ
 enum StoringStatus {storingDisabled,storeSingleData,storeContinuously};
 
 enum SendingStatus {sendingDisabled,sendSingleData,sendSingleDataArray,sendContinuously};
+
+enum TimerStatus {stopped,started,paused};
 
 
 #endif // TYPES_H

@@ -9,6 +9,8 @@
 #ifndef Timer_H
 #define Timer_H
 
+#include "Types.h"
+
 using namespace std;
 
 /**
@@ -17,18 +19,41 @@ using namespace std;
 class Timer {
     public:
         /* --- constructors / destructors --- */
-        Timer() {};
+        Timer(int countDownTime_ = DEFAULT_COUNTDOWN_TIMER_INTERVAL);
 
-        void init(int countDownTimeInMilliSeconds_);
+        /* --- initialization / main execution functions --- */
+        void init(int countDownTime_);
         void start();
         bool checkTimerIsStarted();
-        //void pause();
+        void pause();
         void stopAndReset();
         bool checkTimerIsUp();
+
+        /* --- miscellaneous --- */
         int  getCurrentTime();
 
-    private:
+        /* --- getters / setters --- */
+        TimerStatus getStatus() const;
+        void setStatus(const TimerStatus &val_);
 
+        int getStartTime() const;
+        void setStartTime(int val_);
+
+        int getStopTime() const;
+        void setStopTime(int val_);
+
+        int getCountDownTime() const;
+        void setCountDownTime(int val_);
+
+private:
+        TimerStatus status;
+        int startTime;
+        int stopTime;
+        int countDownTime;
+        int remainingTime;
+
+        int getRemainingTime() const;
+        void setRemainingTime(int val_);
 
 
 
