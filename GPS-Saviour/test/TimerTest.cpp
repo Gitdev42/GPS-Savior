@@ -105,9 +105,11 @@ TEST_CASE("test Timer.pause()") {
     timer1.start();
     timer2.start();
     while(!timer2.checkTimerIsUp()) {
-        timer1.pause();
-        int timeDifference = timer1.getStopTime() - timer1.getStartTime();
-        REQUIRE(timeDifference >= 890);
-        REQUIRE(timeDifference <= 910);
+        //wait
     }
+    timer1.pause();
+    int timeDifference = timer1.getStopTime() - timer1.getStartTime();
+    REQUIRE(timeDifference >= 890);
+    REQUIRE(timeDifference <= 910);
+
 }
