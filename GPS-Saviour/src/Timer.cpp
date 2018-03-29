@@ -233,10 +233,25 @@ void Timer::setCountDownTime(int val_) {
 /**
  * Timer::getRemainingTime
  * @brief getter function of member variable remainingTime
- * @return value of the member variable remainingTime
+ * @return returns the remainingTime until stopTime
+ *
+ * This function only works for TimerStatus = started and TimerStatus = paused.
+ * For all other statuses a 0 is returned!
+ *
+ * If TimerStatus = started this function calculates the time until stopTime and
+ * returns it.
+ * If TimerStatus = paused this function returns the remaining time which was calculated
+ * and saved as the timer was paused.
  */
 int Timer::getRemainingTime() const {
-    return remainingTime;
+    if (getStatus() == TimerStatus::started) {
+        return getStopTime() - getCurrentTime();
+    } else if (getStatus() == TimerStatus::paused) {
+        return remainingTime;
+    } else {
+        return 0;
+    }
+
 }
 
 /**

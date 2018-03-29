@@ -72,6 +72,8 @@ class Timer {
         int getCountDownTime() const;
         void setCountDownTime(int val_);
 
+        int getRemainingTime() const;
+
 private:
         TimerStatus status;
         int startTime;
@@ -83,7 +85,6 @@ private:
         unsigned int getTimeMs64() const;
 
         /* --- getters / setters --- */
-        int getRemainingTime() const;
         void setRemainingTime(int val_);
 
 
