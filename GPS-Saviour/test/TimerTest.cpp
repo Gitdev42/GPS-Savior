@@ -76,13 +76,13 @@ TEST_CASE("test Timer.start()") {
         SECTION("interval = 100") {
             timer1.init(100);
         }
-        SECTION("interval = 100") {
+        SECTION("interval = 1000") {
             timer1.init(1000);
         }
-        SECTION("interval = 100") {
+        SECTION("interval = 10000") {
             timer1.init(10000);
         }
-        SECTION("interval = 100") {
+        SECTION("interval = 100000") {
             timer1.init(100000);
         }
 
@@ -112,4 +112,15 @@ TEST_CASE("test Timer.pause()") {
     REQUIRE(timeDifference >= 890);
     REQUIRE(timeDifference <= 910);
 
+}
+
+TEST_CASE("test Timer.stopAndReset()") {
+    Timer timer1(1000);
+    timer1.start();
+    REQUIRE (timer1.getStatus() == TimerStatus::started);
+    timer1.stopAndReset();
+    REQUIRE (timer1.getStatus() == TimerStatus::stopped);
+    REQUIRE (timer1.getStartTime() == 0);
+    REQUIRE (timer1.getStopTime() ==0);
+    REQUIRE (timer1.getRemainingTime() == 0);
 }
